@@ -34,7 +34,7 @@ const forgotPasswordSendOtpSchema = Joi.object({
 // Used for POST /auth/forgotpassword/verify-otp
 const forgotPasswordVerifyOtpSchema = Joi.object({
   email: Joi.string().email().required(),
-  otp: Joi.string().length(6).required(),
+  token: Joi.string().length(64).required(),
   newPassword: Joi.string()
     .min(8)
     .pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*]).+$/)

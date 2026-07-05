@@ -154,11 +154,11 @@ Base URL: `http://localhost:5000`
 | Method | Endpoint | Description | Auth |
 |---|---|---|---|
 | POST | `/auth/register/send-otp` | Register a new user — sends a verification OTP by email | Public |
-| POST | `/auth/verify-otp` | Verify the OTP and activate the account | Public |
+| POST | `/auth/verify-otp` | Verify the OTP and activate the account (no token returned — log in afterward) | Public |
 | POST | `/auth/login` | Log in — returns a signed JWT | Public |
 | POST | `/auth/logout` | Log out the current user | Private |
-| POST | `/auth/forgotpassword/send-otp` | Request a password reset OTP | Public |
-| POST | `/auth/forgotpassword/verify-otp` | Verify the OTP and set a new password | Public |
+| POST | `/auth/forgotpassword/send-otp` | Request a password reset — sends a crypto reset token by email | Public |
+| POST | `/auth/forgotpassword/verify-otp` | Verify the reset token (`token` field) and set a new password | Public |
 | GET | `/auth/me` | Get the authenticated user's profile | Private |
 
 **Private routes** require an `Authorization` header:
@@ -190,10 +190,12 @@ verify OTP, login, get profile, logout, and password reset), with saved example 
 
 ## 🔒 Security Notes
 
-- Passwords and OTP codes are hashed with `bcryptjs` before being stored — never stored in plain text.
+- Passwords and registration OTP codes are hashed with `bcryptjs` before being stored — never stored in plain text.
+- Password reset uses a **crypto-generated token** (via Node's built-in `crypto` module), stored as a SHA-256 hash directly on the `User` document (`resetPasswordToken`, `resetPasswordExpire`) — not the OTP collection.
 - Sensitive fields (`password`, `resetPasswordToken`) use Mongoose's `select: false` so they're
   never returned by default in queries.
-- OTP documents use a MongoDB **TTL index**, so expired codes are automatically deleted by the database.
+- Registration OTP documents use a MongoDB **TTL index**, so expired codes are automatically deleted by the database.
+- The JWT is only ever issued at `/auth/login` — verifying the registration OTP does **not** return a token; the user must log in afterward.
 - `.env` is excluded from version control via `.gitignore` — never commit real credentials.
 
 ---

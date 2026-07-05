@@ -501,7 +501,7 @@
       ]
     },
     {
-      "name": "Forgot Password - Send OTP",
+      "name": "Forgot Password - Send Token",
       "request": {
         "method": "POST",
         "header": [],
@@ -530,7 +530,7 @@
       },
       "response": [
         {
-          "name": "Forgot Password - Send OTP",
+          "name": "Forgot Password - Send Token",
           "originalRequest": {
             "method": "POST",
             "header": [],
@@ -575,15 +575,15 @@
             },
             {
               "key": "Content-Length",
-              "value": "66"
+              "value": "68"
             },
             {
               "key": "ETag",
-              "value": "W/\"42-XxAqDMoJ1S4aQmOMJT+VKiSnvtY\""
+              "value": "W/\"44-hDTaVxJO9RoMOjGQ+YoQMnRyn0U\""
             },
             {
               "key": "Date",
-              "value": "Sun, 05 Jul 2026 00:49:20 GMT"
+              "value": "Sun, 05 Jul 2026 09:49:26 GMT"
             },
             {
               "key": "Connection",
@@ -595,18 +595,18 @@
             }
           ],
           "cookie": [],
-          "body": "{\n    \"success\": true,\n    \"message\": \"Password reset OTP sent to your email\"\n}"
+          "body": "{\n    \"success\": true,\n    \"message\": \"Password reset token sent to your email\"\n}"
         }
       ]
     },
     {
-      "name": "Forgot Password - Verify OTP",
+      "name": "Forgot Password - Verify Token",
       "request": {
         "method": "POST",
         "header": [],
         "body": {
           "mode": "raw",
-          "raw": "{\r\n  \"email\": \"deneesdod@gmail.com\",\r\n  \"otp\": \"548725\",\r\n  \"newPassword\": \"NewTest@1234\"\r\n}",
+          "raw": "{\r\n  \"email\": \"deneesdod@gmail.com\",\r\n  \"token\": \"4ccbbc00489d43cbbdf4c3626043c835c1642016ab9265a05444eb26a5a8fd10\",\r\n  \"newPassword\": \"NewTest@1234\"\r\n}",
           "options": {
             "raw": {
               "language": "json"
@@ -629,13 +629,13 @@
       },
       "response": [
         {
-          "name": "Forgot Password - Verify OTP",
+          "name": "Forgot Password - Verify Token",
           "originalRequest": {
             "method": "POST",
             "header": [],
             "body": {
               "mode": "raw",
-              "raw": "{\r\n  \"email\": \"deneesdod@gmail.com\",\r\n  \"otp\": \"548725\",\r\n  \"newPassword\": \"NewTest@1234\"\r\n}",
+              "raw": "{\r\n  \"email\": \"deneesdod@gmail.com\",\r\n  \"token\": \"4ccbbc00489d43cbbdf4c3626043c835c1642016ab9265a05444eb26a5a8fd10\",\r\n  \"newPassword\": \"NewTest@1234\"\r\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -682,7 +682,7 @@
             },
             {
               "key": "Date",
-              "value": "Sun, 05 Jul 2026 00:51:58 GMT"
+              "value": "Sun, 05 Jul 2026 09:54:25 GMT"
             },
             {
               "key": "Connection",
