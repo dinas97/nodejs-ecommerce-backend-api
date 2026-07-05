@@ -1,0 +1,702 @@
+{
+  "info": {
+    "_postman_id": "42c50481-c82d-4305-8229-e329595ffa2d",
+    "name": "Ecommerce API - Auth",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "20219009"
+  },
+  "item": [
+    {
+      "name": "Register - Send OTP",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"username\": \"dina\",\r\n  \"email\": \"deneesdod@gmail.com\",\r\n  \"password\": \"TestPassword@123\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:5000/auth/register/send-otp",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5000",
+          "path": [
+            "auth",
+            "register",
+            "send-otp"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "Register - Send OTP",
+          "originalRequest": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"username\": \"dina\",\r\n  \"email\": \"deneesdod@gmail.com\",\r\n  \"password\": \"TestPassword@123\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5000/auth/register/send-otp",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "auth",
+                "register",
+                "send-otp"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "X-Powered-By",
+              "value": "Express"
+            },
+            {
+              "key": "Access-Control-Allow-Origin",
+              "value": "*"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json; charset=utf-8"
+            },
+            {
+              "key": "Content-Length",
+              "value": "51"
+            },
+            {
+              "key": "ETag",
+              "value": "W/\"33-BN0jvBmXhfRk61y+sr3+ZWhLMfo\""
+            },
+            {
+              "key": "Date",
+              "value": "Sun, 05 Jul 2026 00:27:10 GMT"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=5"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"success\": true,\n    \"message\": \"OTP sent to your email\"\n}"
+        }
+      ]
+    },
+    {
+      "name": "Health Check",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:5000/",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5000",
+          "path": [
+            ""
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Verify OTP",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"email\": \"deneesdod@gmail.com\",\r\n  \"otp\": \"046014\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:5000/auth/verify-otp",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5000",
+          "path": [
+            "auth",
+            "verify-otp"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "Verify OTP",
+          "originalRequest": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"email\": \"deneesdod@gmail.com\",\r\n  \"otp\": \"046014\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5000/auth/verify-otp",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "auth",
+                "verify-otp"
+              ]
+            }
+          },
+          "status": "Created",
+          "code": 201,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "X-Powered-By",
+              "value": "Express"
+            },
+            {
+              "key": "Access-Control-Allow-Origin",
+              "value": "*"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json; charset=utf-8"
+            },
+            {
+              "key": "Content-Length",
+              "value": "383"
+            },
+            {
+              "key": "ETag",
+              "value": "W/\"17f-YT46vilSqvgj9/iH9gIy+ZLLfoM\""
+            },
+            {
+              "key": "Date",
+              "value": "Sun, 05 Jul 2026 00:34:54 GMT"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=5"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"success\": true,\n    \"message\": \"Account verified and created successfully\",\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhNDlhNmFlM2E3OGQwNGVmYzAwNmQ0NCIsInJvbGUiOiJjdXN0b21lciIsImlhdCI6MTc4MzIxMTY5NCwiZXhwIjoxNzgzODE2NDk0fQ._u8bjekLT5OMKznWZ5HCbA2mcEE8FtQfrTiS-Ppd3wU\",\n    \"user\": {\n        \"id\": \"6a49a6ae3a78d04efc006d44\",\n        \"username\": \"dina\",\n        \"email\": \"deneesdod@gmail.com\",\n        \"role\": \"customer\"\n    }\n}"
+        }
+      ]
+    },
+    {
+      "name": "Login",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"email\": \"deneesdod@gmail.com\",\r\n  \"password\": \"TestPassword@123\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:5000/auth/login",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5000",
+          "path": [
+            "auth",
+            "login"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "Login",
+          "originalRequest": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"email\": \"deneesdod@gmail.com\",\r\n  \"password\": \"TestPassword@123\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5000/auth/login",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "auth",
+                "login"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "X-Powered-By",
+              "value": "Express"
+            },
+            {
+              "key": "Access-Control-Allow-Origin",
+              "value": "*"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json; charset=utf-8"
+            },
+            {
+              "key": "Content-Length",
+              "value": "364"
+            },
+            {
+              "key": "ETag",
+              "value": "W/\"16c-6F9i1PBjeXLfBpWCRpkBJ78vS4k\""
+            },
+            {
+              "key": "Date",
+              "value": "Sun, 05 Jul 2026 00:38:53 GMT"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=5"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"success\": true,\n    \"message\": \"Logged in successfully\",\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhNDlhNmFlM2E3OGQwNGVmYzAwNmQ0NCIsInJvbGUiOiJjdXN0b21lciIsImlhdCI6MTc4MzIxMTkzMywiZXhwIjoxNzgzODE2NzMzfQ.nDcUlkHByN-QUnS8ygXOBWYutVRbcSretZmUYcAuyes\",\n    \"user\": {\n        \"id\": \"6a49a6ae3a78d04efc006d44\",\n        \"username\": \"dina\",\n        \"email\": \"deneesdod@gmail.com\",\n        \"role\": \"customer\"\n    }\n}"
+        }
+      ]
+    },
+    {
+      "name": "Get Me",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhNDlhNmFlM2E3OGQwNGVmYzAwNmQ0NCIsInJvbGUiOiJjdXN0b21lciIsImlhdCI6MTc4MzIxMTkzMywiZXhwIjoxNzgzODE2NzMzfQ.nDcUlkHByN-QUnS8ygXOBWYutVRbcSretZmUYcAuyes",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:5000/auth/me",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5000",
+          "path": [
+            "auth",
+            "me"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "Get Me",
+          "originalRequest": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhNDlhNmFlM2E3OGQwNGVmYzAwNmQ0NCIsInJvbGUiOiJjdXN0b21lciIsImlhdCI6MTc4MzIxMTkzMywiZXhwIjoxNzgzODE2NzMzfQ.nDcUlkHByN-QUnS8ygXOBWYutVRbcSretZmUYcAuyes",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:5000/auth/me",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "auth",
+                "me"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "X-Powered-By",
+              "value": "Express"
+            },
+            {
+              "key": "Access-Control-Allow-Origin",
+              "value": "*"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json; charset=utf-8"
+            },
+            {
+              "key": "Content-Length",
+              "value": "343"
+            },
+            {
+              "key": "ETag",
+              "value": "W/\"157-wrxMea2qaNqz8BMOfJqiaYkTauI\""
+            },
+            {
+              "key": "Date",
+              "value": "Sun, 05 Jul 2026 00:43:11 GMT"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=5"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"success\": true,\n    \"user\": {\n        \"_id\": \"6a49a6ae3a78d04efc006d44\",\n        \"username\": \"dina\",\n        \"email\": \"deneesdod@gmail.com\",\n        \"phone\": \"\",\n        \"avatar\": \"https://res.cloudinary.com/demo/image/upload/default-avatar.png\",\n        \"role\": \"customer\",\n        \"wishlist\": [],\n        \"isVerified\": true,\n        \"addresses\": [],\n        \"createdAt\": \"2026-07-05T00:34:54.333Z\",\n        \"updatedAt\": \"2026-07-05T00:34:54.333Z\",\n        \"__v\": 0\n    }\n}"
+        }
+      ]
+    },
+    {
+      "name": "Logout",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhNDlhNmFlM2E3OGQwNGVmYzAwNmQ0NCIsInJvbGUiOiJjdXN0b21lciIsImlhdCI6MTc4MzIxMTkzMywiZXhwIjoxNzgzODE2NzMzfQ.nDcUlkHByN-QUnS8ygXOBWYutVRbcSretZmUYcAuyes",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:5000/auth/logout",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5000",
+          "path": [
+            "auth",
+            "logout"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "Logout",
+          "originalRequest": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhNDlhNmFlM2E3OGQwNGVmYzAwNmQ0NCIsInJvbGUiOiJjdXN0b21lciIsImlhdCI6MTc4MzIxMTkzMywiZXhwIjoxNzgzODE2NzMzfQ.nDcUlkHByN-QUnS8ygXOBWYutVRbcSretZmUYcAuyes",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:5000/auth/logout",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "auth",
+                "logout"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "X-Powered-By",
+              "value": "Express"
+            },
+            {
+              "key": "Access-Control-Allow-Origin",
+              "value": "*"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json; charset=utf-8"
+            },
+            {
+              "key": "Content-Length",
+              "value": "52"
+            },
+            {
+              "key": "ETag",
+              "value": "W/\"34-RTw5tHxjaaqEcEVbesn1aQCzRls\""
+            },
+            {
+              "key": "Date",
+              "value": "Sun, 05 Jul 2026 00:46:28 GMT"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=5"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"success\": true,\n    \"message\": \"Logged out successfully\"\n}"
+        }
+      ]
+    },
+    {
+      "name": "Forgot Password - Send OTP",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"email\": \"deneesdod@gmail.com\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:5000/auth/forgotpassword/send-otp",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5000",
+          "path": [
+            "auth",
+            "forgotpassword",
+            "send-otp"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "Forgot Password - Send OTP",
+          "originalRequest": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"email\": \"deneesdod@gmail.com\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5000/auth/forgotpassword/send-otp",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "auth",
+                "forgotpassword",
+                "send-otp"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "X-Powered-By",
+              "value": "Express"
+            },
+            {
+              "key": "Access-Control-Allow-Origin",
+              "value": "*"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json; charset=utf-8"
+            },
+            {
+              "key": "Content-Length",
+              "value": "66"
+            },
+            {
+              "key": "ETag",
+              "value": "W/\"42-XxAqDMoJ1S4aQmOMJT+VKiSnvtY\""
+            },
+            {
+              "key": "Date",
+              "value": "Sun, 05 Jul 2026 00:49:20 GMT"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=5"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"success\": true,\n    \"message\": \"Password reset OTP sent to your email\"\n}"
+        }
+      ]
+    },
+    {
+      "name": "Forgot Password - Verify OTP",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"email\": \"deneesdod@gmail.com\",\r\n  \"otp\": \"548725\",\r\n  \"newPassword\": \"NewTest@1234\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:5000/auth/forgotpassword/verify-otp",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5000",
+          "path": [
+            "auth",
+            "forgotpassword",
+            "verify-otp"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "Forgot Password - Verify OTP",
+          "originalRequest": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"email\": \"deneesdod@gmail.com\",\r\n  \"otp\": \"548725\",\r\n  \"newPassword\": \"NewTest@1234\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5000/auth/forgotpassword/verify-otp",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "auth",
+                "forgotpassword",
+                "verify-otp"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "X-Powered-By",
+              "value": "Express"
+            },
+            {
+              "key": "Access-Control-Allow-Origin",
+              "value": "*"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json; charset=utf-8"
+            },
+            {
+              "key": "Content-Length",
+              "value": "76"
+            },
+            {
+              "key": "ETag",
+              "value": "W/\"4c-RU58CaHMpmTkdmT48UmhOTIl1OE\""
+            },
+            {
+              "key": "Date",
+              "value": "Sun, 05 Jul 2026 00:51:58 GMT"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=5"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"success\": true,\n    \"message\": \"Password reset successfully, you can now log in\"\n}"
+        }
+      ]
+    }
+  ]
+}
