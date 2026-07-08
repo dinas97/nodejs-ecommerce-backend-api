@@ -9,6 +9,7 @@ const {
   verifyOtp,
   login,
   logout,
+  refreshToken,
   sendForgotPasswordOtp,
   verifyForgotPasswordOtp,
   getMe,
@@ -26,6 +27,7 @@ const {
 router.post('/register/send-otp', validate(registerSchema), sendRegisterOtp);
 router.post('/verify-otp', validate(verifyOtpSchema), verifyOtp);
 router.post('/login', validate(loginSchema), login);
+router.post('/refresh-token', refreshToken);
 router.post(
   '/forgotpassword/send-otp',
   validate(forgotPasswordSendOtpSchema),

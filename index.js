@@ -7,6 +7,7 @@ const cookieParser = require('cookie-parser');
 
 const connectDB = require('./DB/connection');
 const authRoutes = require('./routes/auth.routes');
+const userRoutes = require('./routes/user.routes');
 
 const app = express();
 
@@ -24,6 +25,7 @@ if (process.env.NODE_ENV === 'development') {
 
 // --- Routes ---
 app.use('/auth', authRoutes);
+app.use('/users', userRoutes);
 
 app.get('/', (req, res) => {
   res.status(200).json({ success: true, message: 'Ecommerce API is running' });

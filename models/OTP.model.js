@@ -19,7 +19,7 @@ const otpSchema = new mongoose.Schema(
     },
     purpose: {
       type: String,
-      enum: ['register', 'resetPassword'],
+      enum: ['register'],
       default: 'register',
     },
     expiresAt: {

@@ -45,10 +45,51 @@ const forgotPasswordVerifyOtpSchema = Joi.object({
     }),
 });
 
+// Used for POST /users/add (admin creates a user directly)
+const addUserSchema = Joi.object({
+  username: Joi.string().min(2).max(50).required(),
+  email: Joi.string().email().required(),
+  password: Joi.string()
+    .min(8)
+    .pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*]).+$/)
+    .required()
+    .messages({
+      'string.pattern.base':
+        'Password must contain uppercase, lowercase, number, and special character',
+    }),
+  role: Joi.string().valid('admin', 'customer'),
+});
+
+// Used for PATCH /users/:id (user updates their own profile)
+// Sent as multipart/form-data because it may include an image file.
+// Note: no password here — that goes through the dedicated change-password route.
+const updateUserSchema = Joi.object({
+  username: Joi.string().min(2).max(50),
+  phone: Joi.string().allow(''),
+  addresses: Joi.string(), // sent as a JSON string inside form-data, parsed in the controller
+});
+
+// Used for POST /users/change-password
+// No OTP — the user proves identity by providing their current password.
+const changePasswordSchema = Joi.object({
+  currentPassword: Joi.string().required(),
+  newPassword: Joi.string()
+    .min(8)
+    .pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*]).+$/)
+    .required()
+    .messages({
+      'string.pattern.base':
+        'Password must contain uppercase, lowercase, number, and special character',
+    }),
+});
+
 module.exports = {
   registerSchema,
   verifyOtpSchema,
   loginSchema,
   forgotPasswordSendOtpSchema,
   forgotPasswordVerifyOtpSchema,
+  addUserSchema,
+  updateUserSchema,
+  changePasswordSchema,
 };

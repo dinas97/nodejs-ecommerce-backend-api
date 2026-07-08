@@ -13,7 +13,7 @@
         "header": [],
         "body": {
           "mode": "raw",
-          "raw": "{\r\n  \"username\": \"dina\",\r\n  \"email\": \"deneesdod@gmail.com\",\r\n  \"password\": \"TestPassword@123\"\r\n}",
+          "raw": "{\r\n  \"username\": \"dinabr\",\r\n  \"email\": \"dinabr456@gmail.com\",\r\n  \"password\": \"TestPassword@123\"\r\n}",
           "options": {
             "raw": {
               "language": "json"
@@ -42,7 +42,7 @@
             "header": [],
             "body": {
               "mode": "raw",
-              "raw": "{\r\n  \"username\": \"dina\",\r\n  \"email\": \"deneesdod@gmail.com\",\r\n  \"password\": \"TestPassword@123\"\r\n}",
+              "raw": "{\r\n  \"username\": \"dinabr\",\r\n  \"email\": \"dinabr456@gmail.com\",\r\n  \"password\": \"TestPassword@123\"\r\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -89,7 +89,7 @@
             },
             {
               "key": "Date",
-              "value": "Sun, 05 Jul 2026 00:27:10 GMT"
+              "value": "Wed, 08 Jul 2026 12:20:22 GMT"
             },
             {
               "key": "Connection",
@@ -695,6 +695,713 @@
           ],
           "cookie": [],
           "body": "{\n    \"success\": true,\n    \"message\": \"Password reset successfully, you can now log in\"\n}"
+        }
+      ]
+    },
+    {
+      "name": "Refresh Token",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:5000/auth/refresh-token",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5000",
+          "path": [
+            "auth",
+            "refresh-token"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "Refresh Token",
+          "originalRequest": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:5000/auth/refresh-token",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "auth",
+                "refresh-token"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "X-Powered-By",
+              "value": "Express"
+            },
+            {
+              "key": "Access-Control-Allow-Origin",
+              "value": "*"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json; charset=utf-8"
+            },
+            {
+              "key": "Content-Length",
+              "value": "222"
+            },
+            {
+              "key": "ETag",
+              "value": "W/\"de-CUgrAQ6Akk452hCgFL82VbBoiDs\""
+            },
+            {
+              "key": "Date",
+              "value": "Wed, 08 Jul 2026 02:55:35 GMT"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=5"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"success\": true,\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhNGRiYjVlYzdlOTA4NDMwMzg5NWU5ZiIsInJvbGUiOiJjdXN0b21lciIsImlhdCI6MTc4MzQ3OTMzNSwiZXhwIjoxNzgzNDgwMjM1fQ.gP9LWhwoG_JVOA48Eso-TOsxjxxt985NQkw5K5mo1zs\"\n}"
+        }
+      ]
+    },
+    {
+      "name": "Users - Add User",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhNGU0MGYzY2VjNTQyYzVkZmY2ZjZkYiIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc4MzUxMzQ4OSwiZXhwIjoxNzgzNTE0Mzg5fQ.wPTDxJHTu_fHt0Uthhj2oSfTauB7HWsBwEE1GH4SmsI",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"username\": \"denees\",\r\n  \"email\": \"deneesdod@gmail.com\",\r\n  \"password\": \"Test@1234\",\r\n  \"role\": \"customer\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:5000/users/add",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5000",
+          "path": [
+            "users",
+            "add"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "Users - Add User",
+          "originalRequest": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhNGU0MGYzY2VjNTQyYzVkZmY2ZjZkYiIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc4MzUxMzQ4OSwiZXhwIjoxNzgzNTE0Mzg5fQ.wPTDxJHTu_fHt0Uthhj2oSfTauB7HWsBwEE1GH4SmsI",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"username\": \"denees\",\r\n  \"email\": \"deneesdod@gmail.com\",\r\n  \"password\": \"Test@1234\",\r\n  \"role\": \"customer\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5000/users/add",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "users",
+                "add"
+              ]
+            }
+          },
+          "status": "Created",
+          "code": 201,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "X-Powered-By",
+              "value": "Express"
+            },
+            {
+              "key": "Access-Control-Allow-Origin",
+              "value": "*"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json; charset=utf-8"
+            },
+            {
+              "key": "Content-Length",
+              "value": "163"
+            },
+            {
+              "key": "ETag",
+              "value": "W/\"a3-FHjyIe9/YH/CHrQaYvcRgjNdcGw\""
+            },
+            {
+              "key": "Date",
+              "value": "Wed, 08 Jul 2026 12:30:13 GMT"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=5"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"success\": true,\n    \"message\": \"User created successfully\",\n    \"user\": {\n        \"id\": \"6a4e42d4cec542c5dff6f6dc\",\n        \"username\": \"denees\",\n        \"email\": \"deneesdod@gmail.com\",\n        \"role\": \"customer\"\n    }\n}"
+        }
+      ]
+    },
+    {
+      "name": "Users - Get All",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhNGU0MGYzY2VjNTQyYzVkZmY2ZjZkYiIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc4MzUxNDc2NiwiZXhwIjoxNzgzNTE1NjY2fQ.phCM2kmQ-AziZS05MMeOviu-eDk9UAdwQZhi0b3jt3A",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:5000/users/all",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5000",
+          "path": [
+            "users",
+            "all"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "Users - Get All",
+          "originalRequest": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhNGU0MGYzY2VjNTQyYzVkZmY2ZjZkYiIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc4MzUxNDc2NiwiZXhwIjoxNzgzNTE1NjY2fQ.phCM2kmQ-AziZS05MMeOviu-eDk9UAdwQZhi0b3jt3A",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:5000/users/all",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "users",
+                "all"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "X-Powered-By",
+              "value": "Express"
+            },
+            {
+              "key": "Access-Control-Allow-Origin",
+              "value": "*"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json; charset=utf-8"
+            },
+            {
+              "key": "Content-Length",
+              "value": "663"
+            },
+            {
+              "key": "ETag",
+              "value": "W/\"297-I6bS3pmwrQlixeEHLG0x9TL2Jyk\""
+            },
+            {
+              "key": "Date",
+              "value": "Wed, 08 Jul 2026 12:46:45 GMT"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=5"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"success\": true,\n    \"count\": 2,\n    \"users\": [\n        {\n            \"_id\": \"6a4e40f3cec542c5dff6f6db\",\n            \"username\": \"dinabr\",\n            \"email\": \"dinabr456@gmail.com\",\n            \"phone\": \"\",\n            \"avatar\": \"https://res.cloudinary.com/demo/image/upload/default-avatar.png\",\n            \"avatarPublicId\": null,\n            \"role\": \"admin\",\n            \"isVerified\": true,\n            \"createdAt\": \"2026-07-08T12:22:11.432Z\",\n            \"updatedAt\": \"2026-07-08T12:22:11.432Z\",\n            \"__v\": 0\n        },\n        {\n            \"_id\": \"6a4e42d4cec542c5dff6f6dc\",\n            \"username\": \"denees\",\n            \"email\": \"deneesdod@gmail.com\",\n            \"phone\": \"\",\n            \"avatar\": \"https://res.cloudinary.com/demo/image/upload/default-avatar.png\",\n            \"avatarPublicId\": null,\n            \"role\": \"customer\",\n            \"isVerified\": true,\n            \"createdAt\": \"2026-07-08T12:30:12.973Z\",\n            \"updatedAt\": \"2026-07-08T12:30:12.973Z\",\n            \"__v\": 0\n        }\n    ]\n}"
+        }
+      ]
+    },
+    {
+      "name": "Users - Get By Id",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhNGU0MGYzY2VjNTQyYzVkZmY2ZjZkYiIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc4MzUxNDc2NiwiZXhwIjoxNzgzNTE1NjY2fQ.phCM2kmQ-AziZS05MMeOviu-eDk9UAdwQZhi0b3jt3A",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:5000/users/6a4e42d4cec542c5dff6f6dc",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5000",
+          "path": [
+            "users",
+            "6a4e42d4cec542c5dff6f6dc"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "Users - Get By Id",
+          "originalRequest": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhNGU0MGYzY2VjNTQyYzVkZmY2ZjZkYiIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc4MzUxNDc2NiwiZXhwIjoxNzgzNTE1NjY2fQ.phCM2kmQ-AziZS05MMeOviu-eDk9UAdwQZhi0b3jt3A",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:5000/users/6a4e42d4cec542c5dff6f6dc",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "users",
+                "6a4e42d4cec542c5dff6f6dc"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "X-Powered-By",
+              "value": "Express"
+            },
+            {
+              "key": "Access-Control-Allow-Origin",
+              "value": "*"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json; charset=utf-8"
+            },
+            {
+              "key": "Content-Length",
+              "value": "367"
+            },
+            {
+              "key": "ETag",
+              "value": "W/\"16f-Puz+krQjb0EHpVveVVbN4N3wReM\""
+            },
+            {
+              "key": "Date",
+              "value": "Wed, 08 Jul 2026 12:52:23 GMT"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=5"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"success\": true,\n    \"user\": {\n        \"_id\": \"6a4e42d4cec542c5dff6f6dc\",\n        \"username\": \"denees\",\n        \"email\": \"deneesdod@gmail.com\",\n        \"phone\": \"\",\n        \"avatar\": \"https://res.cloudinary.com/demo/image/upload/default-avatar.png\",\n        \"avatarPublicId\": null,\n        \"role\": \"customer\",\n        \"wishlist\": [],\n        \"isVerified\": true,\n        \"addresses\": [],\n        \"createdAt\": \"2026-07-08T12:30:12.973Z\",\n        \"updatedAt\": \"2026-07-08T12:30:12.973Z\",\n        \"__v\": 0\n    }\n}"
+        }
+      ]
+    },
+    {
+      "name": "Users - Update Profile",
+      "request": {
+        "method": "PATCH",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhNGU0MGYzY2VjNTQyYzVkZmY2ZjZkYiIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc4MzUxNTgzOSwiZXhwIjoxNzgzNTE2NzM5fQ.B_vMLkH8Z-1CGk3sYC9jq5ozpEIcsAxrdN3IyTnlRdQ",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "username",
+              "value": "dina_updated",
+              "type": "text",
+              "uuid": "e92c4a7d-4e02-4c77-aaab-77f128383fce"
+            },
+            {
+              "key": "phone",
+              "value": "0791234567",
+              "type": "text",
+              "uuid": "0416318e-c1ae-4bcc-8357-8da91c7d84e2"
+            },
+            {
+              "key": "avatar",
+              "type": "file",
+              "uuid": "20eeb845-a7e5-4d82-9f35-0282539956fa",
+              "src": "/C:/Users/Lenovo/Desktop/414450903_1613459282520614_3955743109429984732_n.jpg"
+            }
+          ]
+        },
+        "url": {
+          "raw": "http://localhost:5000/users/6a4e40f3cec542c5dff6f6db",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5000",
+          "path": [
+            "users",
+            "6a4e40f3cec542c5dff6f6db"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "Users - Update Profile",
+          "originalRequest": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhNGU0MGYzY2VjNTQyYzVkZmY2ZjZkYiIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc4MzUxNTgzOSwiZXhwIjoxNzgzNTE2NzM5fQ.B_vMLkH8Z-1CGk3sYC9jq5ozpEIcsAxrdN3IyTnlRdQ",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "username",
+                  "value": "dina_updated",
+                  "type": "text",
+                  "uuid": "e92c4a7d-4e02-4c77-aaab-77f128383fce"
+                },
+                {
+                  "key": "phone",
+                  "value": "0791234567",
+                  "type": "text",
+                  "uuid": "0416318e-c1ae-4bcc-8357-8da91c7d84e2"
+                },
+                {
+                  "key": "avatar",
+                  "type": "file",
+                  "uuid": "20eeb845-a7e5-4d82-9f35-0282539956fa",
+                  "src": "/C:/Users/Lenovo/Desktop/414450903_1613459282520614_3955743109429984732_n.jpg"
+                }
+              ]
+            },
+            "url": {
+              "raw": "http://localhost:5000/users/6a4e40f3cec542c5dff6f6db",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "users",
+                "6a4e40f3cec542c5dff6f6db"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "X-Powered-By",
+              "value": "Express"
+            },
+            {
+              "key": "Access-Control-Allow-Origin",
+              "value": "*"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json; charset=utf-8"
+            },
+            {
+              "key": "Content-Length",
+              "value": "478"
+            },
+            {
+              "key": "ETag",
+              "value": "W/\"1de-DzP/nSPpZzGaXLw3wM75TNXKNjA\""
+            },
+            {
+              "key": "Date",
+              "value": "Wed, 08 Jul 2026 13:05:10 GMT"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=5"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"success\": true,\n    \"message\": \"Profile updated successfully\",\n    \"user\": {\n        \"_id\": \"6a4e40f3cec542c5dff6f6db\",\n        \"username\": \"dina_updated\",\n        \"email\": \"dinabr456@gmail.com\",\n        \"phone\": \"0791234567\",\n        \"avatar\": \"https://res.cloudinary.com/dhoh7okbe/image/upload/v1783515909/avatars/qdymxxrw4jk0sxtqdbbu.jpg\",\n        \"avatarPublicId\": \"avatars/qdymxxrw4jk0sxtqdbbu\",\n        \"role\": \"admin\",\n        \"wishlist\": [],\n        \"isVerified\": true,\n        \"addresses\": [],\n        \"createdAt\": \"2026-07-08T12:22:11.432Z\",\n        \"updatedAt\": \"2026-07-08T13:05:10.390Z\",\n        \"__v\": 0\n    }\n}"
+        }
+      ]
+    },
+    {
+      "name": "Users - Change Password",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhNGU0MGYzY2VjNTQyYzVkZmY2ZjZkYiIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc4MzUxNTgzOSwiZXhwIjoxNzgzNTE2NzM5fQ.B_vMLkH8Z-1CGk3sYC9jq5ozpEIcsAxrdN3IyTnlRdQ",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"currentPassword\": \"TestPassword@123\",\r\n  \"newPassword\": \"NewTest@5678\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:5000/users/change-password",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5000",
+          "path": [
+            "users",
+            "change-password"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "Users - Change Password",
+          "originalRequest": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhNGU0MGYzY2VjNTQyYzVkZmY2ZjZkYiIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc4MzUxNTgzOSwiZXhwIjoxNzgzNTE2NzM5fQ.B_vMLkH8Z-1CGk3sYC9jq5ozpEIcsAxrdN3IyTnlRdQ",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"currentPassword\": \"TestPassword@123\",\r\n  \"newPassword\": \"NewTest@5678\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5000/users/change-password",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "users",
+                "change-password"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "X-Powered-By",
+              "value": "Express"
+            },
+            {
+              "key": "Access-Control-Allow-Origin",
+              "value": "*"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json; charset=utf-8"
+            },
+            {
+              "key": "Content-Length",
+              "value": "58"
+            },
+            {
+              "key": "ETag",
+              "value": "W/\"3a-q68W5NWhqX5poAtHZphYySdDRQ8\""
+            },
+            {
+              "key": "Date",
+              "value": "Wed, 08 Jul 2026 13:09:21 GMT"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=5"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"success\": true,\n    \"message\": \"Password changed successfully\"\n}"
+        }
+      ]
+    },
+    {
+      "name": "Users - Delete",
+      "request": {
+        "method": "DELETE",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhNGU0MGYzY2VjNTQyYzVkZmY2ZjZkYiIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc4MzUxNTgzOSwiZXhwIjoxNzgzNTE2NzM5fQ.B_vMLkH8Z-1CGk3sYC9jq5ozpEIcsAxrdN3IyTnlRdQ",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:5000/users/6a4e42d4cec542c5dff6f6dc",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5000",
+          "path": [
+            "users",
+            "6a4e42d4cec542c5dff6f6dc"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "Users - Delete",
+          "originalRequest": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhNGU0MGYzY2VjNTQyYzVkZmY2ZjZkYiIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc4MzUxNTgzOSwiZXhwIjoxNzgzNTE2NzM5fQ.B_vMLkH8Z-1CGk3sYC9jq5ozpEIcsAxrdN3IyTnlRdQ",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:5000/users/6a4e42d4cec542c5dff6f6dc",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "users",
+                "6a4e42d4cec542c5dff6f6dc"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "X-Powered-By",
+              "value": "Express"
+            },
+            {
+              "key": "Access-Control-Allow-Origin",
+              "value": "*"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json; charset=utf-8"
+            },
+            {
+              "key": "Content-Length",
+              "value": "54"
+            },
+            {
+              "key": "ETag",
+              "value": "W/\"36-U3bFObQjPKn4UTk58ToYjyCEL80\""
+            },
+            {
+              "key": "Date",
+              "value": "Wed, 08 Jul 2026 13:14:50 GMT"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=5"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"success\": true,\n    \"message\": \"User deleted successfully\"\n}"
         }
       ]
     }

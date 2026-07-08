@@ -62,6 +62,10 @@ const userSchema = new mongoose.Schema(
       default:
         'https://res.cloudinary.com/demo/image/upload/default-avatar.png',
     },
+    avatarPublicId: {
+      type: String,
+      default: null,
+    },
     role: {
       type: String,
       enum: ['admin', 'customer'],
