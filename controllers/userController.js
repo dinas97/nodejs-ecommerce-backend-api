@@ -45,11 +45,21 @@ exports.addUser = async (req, res) => {
 // ---------------------------------------------------------
 exports.getAllUsers = async (req, res) => {
   try {
-    const users = await User.find().select('-addresses -wishlist');
+    const currentPage = Number(req.query.page) || 1;
+    const pageSize = Number(req.query.limit) || 10;
+    const skip = (currentPage - 1) * pageSize;
+
+    const [users, total] = await Promise.all([
+      User.find().select('-addresses -wishlist').skip(skip).limit(pageSize),
+      User.countDocuments(),
+    ]);
 
     return res.status(200).json({
       success: true,
       count: users.length,
+      total,
+      page: currentPage,
+      totalPages: Math.ceil(total / pageSize),
       users,
     });
   } catch (error) {
@@ -107,6 +117,15 @@ exports.updateUser = async (req, res) => {
       }
     }
 
+    // Make sure the request actually contains something to update —
+    // otherwise there's no point running an update query at all.
+    if (Object.keys(updates).length === 0 && !req.file) {
+      return res.status(400).json({
+        success: false,
+        message: 'No data provided to update',
+      });
+    }
+
     // If an image file was uploaded, send it to Cloudinary and store the URL
     if (req.file) {
       const user = await User.findById(req.params.id);
@@ -142,13 +161,21 @@ exports.updateUser = async (req, res) => {
 // ---------------------------------------------------------
 exports.deleteUser = async (req, res) => {
   try {
-    const user = await User.findByIdAndDelete(req.params.id);
+    const user = await User.findById(req.params.id);
 
     if (!user) {
       return res
         .status(404)
         .json({ success: false, message: 'User not found' });
     }
+
+    // Only delete from Cloudinary if the user actually uploaded a custom
+    // avatar (avatarPublicId is null for users still on the default image)
+    if (user.avatarPublicId) {
+      await cloudinary.uploader.destroy(user.avatarPublicId);
+    }
+
+    await user.deleteOne();
 
     return res.status(200).json({
       success: true,
