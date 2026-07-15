@@ -12,6 +12,7 @@ const otpSchema = new mongoose.Schema(
     otp: {
       type: String,
       required: true,
+      select: false,
     },
     userData: {
       type: Object,

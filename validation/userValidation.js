@@ -26,13 +26,13 @@ const loginSchema = Joi.object({
   password: Joi.string().required(),
 });
 
-// Used for POST /auth/forgotpassword/send-otp
-const forgotPasswordSendOtpSchema = Joi.object({
+// Used for POST /auth/forgotpassword/send-token
+const forgotPasswordSendTokenSchema = Joi.object({
   email: Joi.string().email().required(),
 });
 
-// Used for POST /auth/forgotpassword/verify-otp
-const forgotPasswordVerifyOtpSchema = Joi.object({
+// Used for POST /auth/forgotpassword/verify-token
+const forgotPasswordVerifyTokenSchema = Joi.object({
   email: Joi.string().email().required(),
   token: Joi.string().length(64).required(),
   newPassword: Joi.string()
@@ -87,8 +87,8 @@ module.exports = {
   registerSchema,
   verifyOtpSchema,
   loginSchema,
-  forgotPasswordSendOtpSchema,
-  forgotPasswordVerifyOtpSchema,
+  forgotPasswordSendTokenSchema,
+  forgotPasswordVerifyTokenSchema,
   addUserSchema,
   updateUserSchema,
   changePasswordSchema,

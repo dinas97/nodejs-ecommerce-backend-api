@@ -10,8 +10,8 @@ const {
   login,
   logout,
   refreshToken,
-  sendForgotPasswordOtp,
-  verifyForgotPasswordOtp,
+  sendForgotPasswordToken,
+  verifyForgotPasswordToken,
   getMe,
 } = require('../controllers/authController');
 
@@ -19,8 +19,8 @@ const {
   registerSchema,
   verifyOtpSchema,
   loginSchema,
-  forgotPasswordSendOtpSchema,
-  forgotPasswordVerifyOtpSchema,
+  forgotPasswordSendTokenSchema,
+  forgotPasswordVerifyTokenSchema,
 } = require('../validation/userValidation');
 
 // --- Public routes ---
@@ -29,14 +29,14 @@ router.post('/verify-otp', validate(verifyOtpSchema), verifyOtp);
 router.post('/login', validate(loginSchema), login);
 router.post('/refresh-token', refreshToken);
 router.post(
-  '/forgotpassword/send-otp',
-  validate(forgotPasswordSendOtpSchema),
-  sendForgotPasswordOtp,
+  '/forgotpassword/send-token',
+  validate(forgotPasswordSendTokenSchema),
+  sendForgotPasswordToken,
 );
 router.post(
-  '/forgotpassword/verify-otp',
-  validate(forgotPasswordVerifyOtpSchema),
-  verifyForgotPasswordOtp,
+  '/forgotpassword/verify-token',
+  validate(forgotPasswordVerifyTokenSchema),
+  verifyForgotPasswordToken,
 );
 
 // --- Private routes (require a valid JWT) ---

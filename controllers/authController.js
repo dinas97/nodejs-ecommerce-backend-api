@@ -225,9 +225,9 @@ exports.logout = async (req, res) => {
 };
 
 // ---------------------------------------------------------
-// POST /auth/forgotpassword/send-otp — Public
+// POST /auth/forgotpassword/send-token — Public
 // ---------------------------------------------------------
-exports.sendForgotPasswordOtp = async (req, res) => {
+exports.sendForgotPasswordToken = async (req, res) => {
   try {
     const { email } = req.body;
 
@@ -263,9 +263,9 @@ exports.sendForgotPasswordOtp = async (req, res) => {
 };
 
 // ---------------------------------------------------------
-// POST /auth/forgotpassword/verify-otp — Public
+// POST /auth/forgotpassword/verify-token — Public
 // ---------------------------------------------------------
-exports.verifyForgotPasswordOtp = async (req, res) => {
+exports.verifyForgotPasswordToken = async (req, res) => {
   try {
     const { email, token: resetToken, newPassword } = req.body;
 
