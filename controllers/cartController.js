@@ -26,9 +26,9 @@ exports.getCart = async (req, res) => {
 
 // ---------------------------------------------------------
 // POST /carts/items — User
-// Adds a product to the cart and immediately deducts its stock.
-// If the product is already in the cart, increases its quantity instead
-// of creating a duplicate line.
+// Adds a product to the cart. Only CHECKS the product's stock to make
+// sure enough units exist — does NOT deduct anything from stock.
+// Stock is only ever touched when an actual order is placed.
 // ---------------------------------------------------------
 exports.addItem = async (req, res) => {
   try {
@@ -41,21 +41,28 @@ exports.addItem = async (req, res) => {
         .json({ success: false, message: 'Product not found' });
     }
 
-    if (product.stock < quantity) {
-      return res.status(400).json({
-        success: false,
-        message: `Only ${product.stock} unit(s) left in stock`,
-      });
-    }
-
     const cart = await findOrCreateCart(req.user._id);
 
     const existingItem = cart.items.find(
       (item) => item.product.toString() === productId,
     );
 
+    // The quantity the user is TRYING to end up with in the cart
+    const targetQuantity = existingItem
+      ? existingItem.quantity + quantity
+      : quantity;
+
+    // Read-only check: is there enough stock for this quantity?
+    // We never modify product.stock here.
+    if (targetQuantity > product.stock) {
+      return res.status(400).json({
+        success: false,
+        message: `Only ${product.stock} unit(s) available in stock`,
+      });
+    }
+
     if (existingItem) {
-      existingItem.quantity += quantity;
+      existingItem.quantity = targetQuantity;
     } else {
       cart.items.push({
         product: product._id,
@@ -67,9 +74,6 @@ exports.addItem = async (req, res) => {
       });
     }
 
-    // Deduct stock immediately, as soon as the item enters the cart
-    product.stock -= quantity;
-    await product.save();
     await cart.save();
 
     return res.status(200).json({
@@ -84,8 +88,8 @@ exports.addItem = async (req, res) => {
 
 // ---------------------------------------------------------
 // PATCH /carts/items — User
-// Sets a NEW absolute quantity for an item already in the cart, and
-// adjusts the product's stock by the exact difference.
+// Sets a NEW absolute quantity for an item already in the cart.
+// Only CHECKS stock availability — does NOT modify product.stock.
 // ---------------------------------------------------------
 exports.updateItemQuantity = async (req, res) => {
   try {
@@ -112,21 +116,15 @@ exports.updateItemQuantity = async (req, res) => {
         .json({ success: false, message: 'Product not found' });
     }
 
-    // Positive difference = need MORE stock reserved
-    // Negative difference = return some stock back
-    const difference = newQuantity - item.quantity;
-
-    if (difference > 0 && product.stock < difference) {
+    // Read-only check: is enough stock available for the new quantity?
+    if (newQuantity > product.stock) {
       return res.status(400).json({
         success: false,
-        message: `Only ${product.stock} more unit(s) available`,
+        message: `Only ${product.stock} unit(s) available in stock`,
       });
     }
 
-    product.stock -= difference;
     item.quantity = newQuantity;
-
-    await product.save();
     await cart.save();
 
     return res.status(200).json({
@@ -141,7 +139,8 @@ exports.updateItemQuantity = async (req, res) => {
 
 // ---------------------------------------------------------
 // DELETE /carts/items/:productId — User
-// Removes an item entirely and restores its full quantity to stock.
+// Removes an item from the cart. Does NOT touch product stock —
+// nothing was ever deducted when the item was added.
 // ---------------------------------------------------------
 exports.removeItem = async (req, res) => {
   try {
@@ -154,16 +153,14 @@ exports.removeItem = async (req, res) => {
         .json({ success: false, message: 'Cart not found' });
     }
 
-    const item = cart.items.find((i) => i.product.toString() === productId);
-    if (!item) {
+    const itemExists = cart.items.some(
+      (i) => i.product.toString() === productId,
+    );
+    if (!itemExists) {
       return res
         .status(404)
         .json({ success: false, message: 'Item not found in cart' });
     }
-
-    await Product.findByIdAndUpdate(productId, {
-      $inc: { stock: item.quantity },
-    });
 
     cart.items = cart.items.filter((i) => i.product.toString() !== productId);
     await cart.save();
@@ -240,7 +237,8 @@ exports.removeCoupon = async (req, res) => {
 
 // ---------------------------------------------------------
 // DELETE /carts/clear — User
-// Clears all items AND restores their stock, plus removes any coupon.
+// Clears all items and the coupon. Does NOT touch product stock —
+// nothing was ever deducted when items were added.
 // ---------------------------------------------------------
 exports.clearCart = async (req, res) => {
   try {
@@ -250,16 +248,6 @@ exports.clearCart = async (req, res) => {
         .status(404)
         .json({ success: false, message: 'Cart not found' });
     }
-
-    // Restore stock for every item before wiping the cart — otherwise
-    // that inventory would be permanently lost with no order ever placed
-    await Promise.all(
-      cart.items.map((item) =>
-        Product.findByIdAndUpdate(item.product, {
-          $inc: { stock: item.quantity },
-        }),
-      ),
-    );
 
     cart.items = [];
     cart.coupon = { code: null, discountType: null, discountValue: 0 };
