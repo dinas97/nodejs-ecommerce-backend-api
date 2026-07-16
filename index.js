@@ -9,6 +9,8 @@ const connectDB = require('./DB/connection');
 const authRoutes = require('./routes/auth.routes');
 const userRoutes = require('./routes/user.routes');
 const productRoutes = require('./routes/product.routes');
+const cartRoutes = require('./routes/cart.routes');
+const wishlistRoutes = require('./routes/wishlist.routes');
 
 const app = express();
 
@@ -28,6 +30,8 @@ if (process.env.NODE_ENV === 'development') {
 app.use('/auth', authRoutes);
 app.use('/users', userRoutes);
 app.use('/products', productRoutes);
+app.use('/carts', cartRoutes);
+app.use('/wishlists', wishlistRoutes);
 
 app.get('/', (req, res) => {
   res.status(200).json({ success: true, message: 'Ecommerce API is running' });
