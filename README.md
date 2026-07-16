@@ -18,9 +18,9 @@ This project is being built section by section. Current progress:
 | Refresh Token flow         | ✅ Completed & tested |
 | Users (`/users`)           | ✅ Completed & tested |
 | Products (`/products`)     | ✅ Completed & tested |
-| Cart (`/carts`)            | ⏳ Planned            |
+| Cart (`/carts`)            | ✅ Completed & tested |
+| Wishlist (`/wishlists`)    | ✅ Completed & tested |
 | Orders (`/orders`)         | ⏳ Planned            |
-| Wishlist (`/wishlists`)    | ⏳ Planned            |
 | Admin Dashboard (`/admin`) | ⏳ Planned            |
 
 ---
@@ -53,6 +53,8 @@ This project is being built section by section. Current progress:
 nodejs-ecommerce-backend-api/
 ├── config/
 │   └── cloudinary.js         → Cloudinary configuration
+├── constants/
+│   └── coupons.js             → Static coupon codes for the cart
 ├── models/                    → Mongoose schemas and models
 │   ├── User.model.js
 │   ├── OTP.model.js
@@ -63,13 +65,17 @@ nodejs-ecommerce-backend-api/
 ├── controllers/                → Business logic for every resource
 │   ├── authController.js
 │   ├── userController.js
-│   └── productController.js
+│   ├── productController.js
+│   ├── cartController.js
+│   └── wishlistController.js
 ├── DB/
 │   └── connection.js            → Database connection
 ├── routes/                       → Express route definitions
 │   ├── auth.routes.js
 │   ├── user.routes.js
-│   └── product.routes.js
+│   ├── product.routes.js
+│   ├── cart.routes.js
+│   └── wishlist.routes.js
 ├── middleware/                    → Auth guard, admin guard, validation, upload
 │   ├── auth.js
 │   ├── adminOnly.js
@@ -182,16 +188,16 @@ CLOUDINARY_API_SECRET=your_api_secret
 
 Base URL: `http://localhost:5000`
 
-| Method | Endpoint                          | Description                                                                    | Auth            |
-| ------ | --------------------------------- | ------------------------------------------------------------------------------ | --------------- |
-| POST   | `/auth/register/send-otp`         | Register a new user — sends a verification OTP by email                        | Public          |
-| POST   | `/auth/verify-otp`                | Verify the OTP and activate the account (no token returned — log in afterward) | Public          |
-| POST   | `/auth/login`                     | Log in — returns an access token (body) + refresh token (httpOnly cookie)      | Public          |
-| POST   | `/auth/refresh-token`             | Issue a new access token using the refresh token cookie                        | Public (cookie) |
-| POST   | `/auth/logout`                    | Log out — clears the refresh token cookie                                      | Private         |
-| POST   | `/auth/forgotpassword/send-otp`   | Request a password reset — sends a crypto reset token by email                 | Public          |
-| POST   | `/auth/forgotpassword/verify-otp` | Verify the reset token (`token` field), set a new password, and auto-log-in    | Public          |
-| GET    | `/auth/me`                        | Get the authenticated user's profile                                           | Private         |
+| Method | Endpoint                            | Description                                                                    | Auth            |
+| ------ | ----------------------------------- | ------------------------------------------------------------------------------ | --------------- |
+| POST   | `/auth/register/send-otp`           | Register a new user — sends a verification OTP by email                        | Public          |
+| POST   | `/auth/verify-otp`                  | Verify the OTP and activate the account (no token returned — log in afterward) | Public          |
+| POST   | `/auth/login`                       | Log in — returns an access token (body) + refresh token (httpOnly cookie)      | Public          |
+| POST   | `/auth/refresh-token`               | Issue a new access token using the refresh token cookie                        | Public (cookie) |
+| POST   | `/auth/logout`                      | Log out — clears the refresh token cookie                                      | Private         |
+| POST   | `/auth/forgotpassword/send-token`   | Request a password reset — sends a crypto reset token by email                 | Public          |
+| POST   | `/auth/forgotpassword/verify-token` | Verify the reset token (`token` field), set a new password, and auto-log-in    | Public          |
+| GET    | `/auth/me`                          | Get the authenticated user's profile                                           | Private         |
 
 ---
 
@@ -256,6 +262,47 @@ Authorization: Bearer <access_token>
 
 ---
 
+## 📡 API Endpoints — Cart (`/carts`)
+
+| Method | Endpoint                  | Description                                                            | Auth |
+| ------ | ------------------------- | ---------------------------------------------------------------------- | ---- |
+| GET    | `/carts`                  | Get the user's cart — creates one automatically if it doesn't exist    | User |
+| POST   | `/carts/items`            | Add an item to the cart — deducts stock immediately                    | User |
+| PATCH  | `/carts/items`            | Set a new quantity for an item — adjusts stock by the exact difference | User |
+| DELETE | `/carts/items/:productId` | Remove an item — restores its stock                                    | User |
+| POST   | `/carts/coupon`           | Apply a discount coupon to the cart                                    | User |
+| DELETE | `/carts/coupon`           | Remove the currently applied coupon                                    | User |
+| DELETE | `/carts/clear`            | Clear all items and the coupon, restoring stock for every item         | User |
+
+**Notes:**
+
+- Coupon codes are defined as a static object in `constants/coupons.js` (`SAVE10`, `SAVE20`, `SAVE50`,
+  `SAVE80` as percentage discounts, `OFF50` as a fixed discount) — add new codes there without touching
+  any other file.
+- `subtotal`, `discountAmount`, `total`, and `itemCount` are Mongoose **virtuals** — computed live from
+  the cart's items and coupon on every read, never stored in the database, so they can never go out of sync.
+- Adding an item snapshots the product's current name, image, and price into the cart line — so the
+  cart stays accurate even if the product is later renamed or repriced.
+
+---
+
+## 📡 API Endpoints — Wishlist (`/wishlists`)
+
+| Method | Endpoint                       | Description                                       | Auth |
+| ------ | ------------------------------ | ------------------------------------------------- | ---- |
+| GET    | `/wishlists/my`                | Get the user's wishlist with full product details | User |
+| POST   | `/wishlists/add/:productId`    | Add a product to the wishlist                     | User |
+| DELETE | `/wishlists/remove/:productId` | Remove a product from the wishlist                | User |
+| DELETE | `/wishlists/clear`             | Clear the entire wishlist                         | User |
+
+**Notes:**
+
+- A `pre('find')` hook automatically populates full product details on every query — the client never
+  needs a second request to get product info for wishlist items.
+- Adding the same product twice returns a `409 Conflict` instead of creating a duplicate entry.
+
+---
+
 ## 🔁 Refresh Token Flow
 
 To avoid forcing users to log in every time their session expires, the API uses two tokens:
@@ -272,32 +319,6 @@ To avoid forcing users to log in every time their session expires, the API uses 
 3. When the access token expires, the client calls `POST /auth/refresh-token` (the cookie is sent
    automatically by the browser/Postman) to get a new access token — without re-entering credentials.
 4. On logout, the refresh token cookie is cleared.
-
----
-
-## 🧪 Testing with Postman
-
-A ready-to-use Postman collection is included at:
-
-```
-postman/Ecommerce-API.postman_collection.json
-```
-
-It covers the full authentication flow (register, verify OTP, login, refresh token, logout,
-password reset) and the full users flow (add, get all, get by id, update profile with avatar,
-change password, delete), with saved example responses.
-
-**To use it:**
-
-1. Open Postman
-2. Click **Import**
-3. Select `postman/Ecommerce-API.postman_collection.json`
-4. Make sure the server is running locally on `http://localhost:5000`
-5. Log in first to get an access token, then use it in the `Authorization` header (as `Bearer <token>`)
-   for any private route
-
-> To test admin-only routes, manually set a user's `role` field to `"admin"` in MongoDB Atlas —
-> there is no API endpoint that grants admin access.
 
 ---
 
