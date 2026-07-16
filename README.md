@@ -275,32 +275,6 @@ To avoid forcing users to log in every time their session expires, the API uses 
 
 ---
 
-## 🧪 Testing with Postman
-
-A ready-to-use Postman collection is included at:
-
-```
-postman/Ecommerce-API.postman_collection.json
-```
-
-It covers the full authentication flow (register, verify OTP, login, refresh token, logout,
-password reset) and the full users flow (add, get all, get by id, update profile with avatar,
-change password, delete), with saved example responses.
-
-**To use it:**
-
-1. Open Postman
-2. Click **Import**
-3. Select `postman/Ecommerce-API.postman_collection.json`
-4. Make sure the server is running locally on `http://localhost:5000`
-5. Log in first to get an access token, then use it in the `Authorization` header (as `Bearer <token>`)
-   for any private route
-
-> To test admin-only routes, manually set a user's `role` field to `"admin"` in MongoDB Atlas —
-> there is no API endpoint that grants admin access.
-
----
-
 ## 🔒 Security Notes
 
 - Passwords and registration OTP codes are hashed with `bcryptjs` before being stored — never stored in plain text.
