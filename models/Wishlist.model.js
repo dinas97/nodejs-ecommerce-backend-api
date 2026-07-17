@@ -21,9 +21,8 @@ const wishlistSchema = new mongoose.Schema(
 
 // Auto-populate full product details on every find query, so the client
 // always gets complete product info without needing a second request.
-wishlistSchema.pre(/^find/, function (next) {
+wishlistSchema.pre(/^find/, function () {
   this.populate('products');
-  next();
 });
 
 module.exports = mongoose.model('Wishlist', wishlistSchema);

@@ -1,0 +1,3567 @@
+{
+  "info": {
+    "_postman_id": "a5111f0c-1f39-4e0f-8185-d1ce90b47b46",
+    "name": "Ecommerce API - Full Collection",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "20219009"
+  },
+  "item": [
+    {
+      "name": "1. Authentication",
+      "item": [
+        {
+          "name": "0. Health Check",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:5000/",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                ""
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "0. Health Check",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:5000/",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "5000",
+                  "path": [
+                    ""
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "53"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"35-2q7aaeSXcOriWuA4Ugrqw2Zyf7s\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 17 Jul 2026 17:50:14 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"message\": \"Ecommerce API is running\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "1. Register - Send OTP",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"username\": \"dina\",\r\n  \"email\": \"dinabr456@gmail.com\",\r\n  \"password\": \"Test@1234\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5000/auth/register/send-otp",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "auth",
+                "register",
+                "send-otp"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "1. Register - Send OTP",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"username\": \"dina\",\r\n  \"email\": \"dinabr456@gmail.com\",\r\n  \"password\": \"Test@1234\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:5000/auth/register/send-otp",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "5000",
+                  "path": [
+                    "auth",
+                    "register",
+                    "send-otp"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "51"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"33-BN0jvBmXhfRk61y+sr3+ZWhLMfo\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 17 Jul 2026 17:56:54 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"message\": \"OTP sent to your email\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "2. Verify OTP",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"email\": \"dinabr456@gmail.com\",\r\n  \"otp\": \"576516\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5000/auth/verify-otp",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "auth",
+                "verify-otp"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "2. Verify OTP",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"email\": \"dinabr456@gmail.com\",\r\n  \"otp\": \"576516\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:5000/auth/verify-otp",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "5000",
+                  "path": [
+                    "auth",
+                    "verify-otp"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "175"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"af-1TEG0bS/oGl4o8DlNgMeY0CXlCs\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 17 Jul 2026 17:59:24 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"message\": \"Account verified and created successfully. Please log in.\",\n    \"user\": {\n        \"id\": \"6a5a6d7c902c55528e099d71\",\n        \"username\": \"dina\",\n        \"email\": \"dinabr456@gmail.com\"\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "3. Login",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"email\": \"dinabr456@gmail.com\",\r\n  \"password\": \"Test@1234\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5000/auth/login",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "auth",
+                "login"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "3. Login",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"email\": \"dinabr456@gmail.com\",\r\n  \"password\": \"Test@1234\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:5000/auth/login",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "5000",
+                  "path": [
+                    "auth",
+                    "login"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Set-Cookie",
+                  "value": "refreshToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhNWE2ZDdjOTAyYzU1NTI4ZTA5OWQ3MSIsImlhdCI6MTc4NDMxMTMzMywiZXhwIjoxNzg0OTE2MTMzfQ.tw59LEbPw-fSJG0Qpg3sMZZ1CwvSy2uCFDo9-XkLmFc; Max-Age=604800; Path=/; Expires=Fri, 24 Jul 2026 18:02:13 GMT; HttpOnly; SameSite=Strict"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "346"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"15a-3d3plLVWGLDiL0lk3ZG6mIzxYAM\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 17 Jul 2026 18:02:13 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"message\": \"Logged in successfully\",\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhNWE2ZDdjOTAyYzU1NTI4ZTA5OWQ3MSIsInJvbGUiOiJjdXN0b21lciIsImlhdCI6MTc4NDMxMTMzMywiZXhwIjoxNzg0MzEyMjMzfQ.oSmKBjfVv8C1M0CU_gAhfsF_5xJsDb-2dnnZeWKvzL4\",\n    \"user\": {\n        \"id\": \"6a5a6d7c902c55528e099d71\",\n        \"username\": \"dina\",\n        \"email\": \"dinabr456@gmail.com\"\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "4. Refresh Token",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:5000/auth/refresh-token",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "auth",
+                "refresh-token"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "4. Refresh Token",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:5000/auth/refresh-token",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "5000",
+                  "path": [
+                    "auth",
+                    "refresh-token"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "222"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"de-AT2KoPq85qHifY3dXh78+vWGYUc\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 17 Jul 2026 18:03:42 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhNWE2ZDdjOTAyYzU1NTI4ZTA5OWQ3MSIsInJvbGUiOiJjdXN0b21lciIsImlhdCI6MTc4NDMxMTQyMiwiZXhwIjoxNzg0MzEyMzIyfQ.Xot_8lIwT8ys5R8BrDqYgiUa36Ijob26F8NvCWmfmQ8\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "5. Get Me",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhNWE2ZDdjOTAyYzU1NTI4ZTA5OWQ3MSIsInJvbGUiOiJjdXN0b21lciIsImlhdCI6MTc4NDMxMTMzMywiZXhwIjoxNzg0MzEyMjMzfQ.oSmKBjfVv8C1M0CU_gAhfsF_5xJsDb-2dnnZeWKvzL4",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:5000/auth/me",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "auth",
+                "me"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "5. Get Me",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhNWE2ZDdjOTAyYzU1NTI4ZTA5OWQ3MSIsInJvbGUiOiJjdXN0b21lciIsImlhdCI6MTc4NDMxMTMzMywiZXhwIjoxNzg0MzEyMjMzfQ.oSmKBjfVv8C1M0CU_gAhfsF_5xJsDb-2dnnZeWKvzL4",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "http://localhost:5000/auth/me",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "5000",
+                  "path": [
+                    "auth",
+                    "me"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "365"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"16d-2LeyxwbekikapH5Zb47VFa6cJio\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 17 Jul 2026 18:05:50 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"user\": {\n        \"_id\": \"6a5a6d7c902c55528e099d71\",\n        \"username\": \"dina\",\n        \"email\": \"dinabr456@gmail.com\",\n        \"phone\": \"\",\n        \"avatar\": \"https://res.cloudinary.com/demo/image/upload/default-avatar.png\",\n        \"avatarPublicId\": null,\n        \"role\": \"customer\",\n        \"wishlist\": [],\n        \"isVerified\": true,\n        \"addresses\": [],\n        \"createdAt\": \"2026-07-17T17:59:24.162Z\",\n        \"updatedAt\": \"2026-07-17T17:59:24.162Z\",\n        \"__v\": 0\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "6. Logout",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhNWE2ZDdjOTAyYzU1NTI4ZTA5OWQ3MSIsInJvbGUiOiJjdXN0b21lciIsImlhdCI6MTc4NDMxMTMzMywiZXhwIjoxNzg0MzEyMjMzfQ.oSmKBjfVv8C1M0CU_gAhfsF_5xJsDb-2dnnZeWKvzL4",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:5000/auth/logout",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "auth",
+                "logout"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "6. Logout",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhNWE2ZDdjOTAyYzU1NTI4ZTA5OWQ3MSIsInJvbGUiOiJjdXN0b21lciIsImlhdCI6MTc4NDMxMTMzMywiZXhwIjoxNzg0MzEyMjMzfQ.oSmKBjfVv8C1M0CU_gAhfsF_5xJsDb-2dnnZeWKvzL4",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "http://localhost:5000/auth/logout",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "5000",
+                  "path": [
+                    "auth",
+                    "logout"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Set-Cookie",
+                  "value": "refreshToken=; Path=/; Expires=Thu, 01 Jan 1970 00:00:00 GMT; HttpOnly; SameSite=Strict"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "52"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"34-RTw5tHxjaaqEcEVbesn1aQCzRls\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 17 Jul 2026 18:07:14 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"message\": \"Logged out successfully\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "7. Forgot Password - Send Token",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{ \"email\": \"dinabr456@gmail.com\" }",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5000/auth/forgotpassword/send-token",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "auth",
+                "forgotpassword",
+                "send-token"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "7. Forgot Password - Send Token",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{ \"email\": \"dinabr456@gmail.com\" }",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:5000/auth/forgotpassword/send-token",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "5000",
+                  "path": [
+                    "auth",
+                    "forgotpassword",
+                    "send-token"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "68"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"44-hDTaVxJO9RoMOjGQ+YoQMnRyn0U\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 17 Jul 2026 18:09:38 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"message\": \"Password reset token sent to your email\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "8. Forgot Password - Verify Token",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"email\": \"dinabr456@gmail.com\",\r\n  \"token\": \"18b9e101e7b365010d4a89c0f56783b62746adbc98e5c025e279c136df0ef7ea\",\r\n  \"newPassword\": \"NewTest@1234\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5000/auth/forgotpassword/verify-token",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "auth",
+                "forgotpassword",
+                "verify-token"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "8. Forgot Password - Verify Token",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"email\": \"dinabr456@gmail.com\",\r\n  \"token\": \"18b9e101e7b365010d4a89c0f56783b62746adbc98e5c025e279c136df0ef7ea\",\r\n  \"newPassword\": \"NewTest@1234\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:5000/auth/forgotpassword/verify-token",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "5000",
+                  "path": [
+                    "auth",
+                    "forgotpassword",
+                    "verify-token"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Set-Cookie",
+                  "value": "refreshToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhNWE2ZDdjOTAyYzU1NTI4ZTA5OWQ3MSIsImlhdCI6MTc4NDMxMTkxNCwiZXhwIjoxNzg0OTE2NzE0fQ.MvO0OpiOh1OX1TozB2UPq1q9nxCO84-2S92NQaHluOM; Max-Age=604800; Path=/; Expires=Fri, 24 Jul 2026 18:11:54 GMT; HttpOnly; SameSite=Strict"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "351"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"15f-pQ2/PZlIlZJOddZwRWlO+mijzV8\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 17 Jul 2026 18:11:54 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"message\": \"Password reset successfully\",\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhNWE2ZDdjOTAyYzU1NTI4ZTA5OWQ3MSIsInJvbGUiOiJjdXN0b21lciIsImlhdCI6MTc4NDMxMTkxNCwiZXhwIjoxNzg0MzEyODE0fQ.VQFt9m9nTjaGBzwcpmKx0CXwO_HBWxE_0ynKd75aYwg\",\n    \"user\": {\n        \"id\": \"6a5a6d7c902c55528e099d71\",\n        \"username\": \"dina\",\n        \"email\": \"dinabr456@gmail.com\"\n    }\n}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "2. Users",
+      "item": [
+        {
+          "name": "9. Users - Add User",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhNWE2ZDdjOTAyYzU1NTI4ZTA5OWQ3MSIsInJvbGUiOiJjdXN0b21lciIsImlhdCI6MTc4NDMxMTMzMywiZXhwIjoxNzg0MzEyMjMzfQ.oSmKBjfVv8C1M0CU_gAhfsF_5xJsDb-2dnnZeWKvzL4",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"username\": \"denees\",\r\n  \"email\": \"deneesdod@gmail.com\",\r\n  \"password\": \"Test@1234\",\r\n  \"role\": \"customer\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5000/users/add",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "users",
+                "add"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "9. Users - Add User",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhNWE2ZDdjOTAyYzU1NTI4ZTA5OWQ3MSIsInJvbGUiOiJjdXN0b21lciIsImlhdCI6MTc4NDMxMTMzMywiZXhwIjoxNzg0MzEyMjMzfQ.oSmKBjfVv8C1M0CU_gAhfsF_5xJsDb-2dnnZeWKvzL4",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"username\": \"denees\",\r\n  \"email\": \"deneesdod@gmail.com\",\r\n  \"password\": \"Test@1234\",\r\n  \"role\": \"customer\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:5000/users/add",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "5000",
+                  "path": [
+                    "users",
+                    "add"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "163"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"a3-5BevjTlARvFle+/6MsLrS4ARSC0\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 17 Jul 2026 18:17:06 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"message\": \"User created successfully\",\n    \"user\": {\n        \"id\": \"6a5a71a1902c55528e099d72\",\n        \"username\": \"denees\",\n        \"email\": \"deneesdod@gmail.com\",\n        \"role\": \"customer\"\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "10. Users - Get All",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhNWE2ZDdjOTAyYzU1NTI4ZTA5OWQ3MSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc4NDMxMjQwMywiZXhwIjoxNzg0MzEzMzAzfQ.d58kAtsNGWvSuCx2kr88fJnvAvIHGMpw6u-iPjvi0xY",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:5000/users/all?page=1&limit=10",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "users",
+                "all"
+              ],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "key": "limit",
+                  "value": "10"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "10. Users - Get All",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhNWE2ZDdjOTAyYzU1NTI4ZTA5OWQ3MSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc4NDMxMjQwMywiZXhwIjoxNzg0MzEzMzAzfQ.d58kAtsNGWvSuCx2kr88fJnvAvIHGMpw6u-iPjvi0xY",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "http://localhost:5000/users/all?page=1&limit=10",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "5000",
+                  "path": [
+                    "users",
+                    "all"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "10"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "695"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"2b7-GcCawT5lypy1ePhOr+6+fx81MMU\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 17 Jul 2026 18:20:42 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"count\": 2,\n    \"total\": 2,\n    \"page\": 1,\n    \"totalPages\": 1,\n    \"users\": [\n        {\n            \"_id\": \"6a5a6d7c902c55528e099d71\",\n            \"username\": \"dina\",\n            \"email\": \"dinabr456@gmail.com\",\n            \"phone\": \"\",\n            \"avatar\": \"https://res.cloudinary.com/demo/image/upload/default-avatar.png\",\n            \"avatarPublicId\": null,\n            \"role\": \"admin\",\n            \"isVerified\": true,\n            \"createdAt\": \"2026-07-17T17:59:24.162Z\",\n            \"updatedAt\": \"2026-07-17T18:11:54.425Z\",\n            \"__v\": 0\n        },\n        {\n            \"_id\": \"6a5a71a1902c55528e099d72\",\n            \"username\": \"denees\",\n            \"email\": \"deneesdod@gmail.com\",\n            \"phone\": \"\",\n            \"avatar\": \"https://res.cloudinary.com/demo/image/upload/default-avatar.png\",\n            \"avatarPublicId\": null,\n            \"role\": \"customer\",\n            \"isVerified\": true,\n            \"createdAt\": \"2026-07-17T18:17:05.951Z\",\n            \"updatedAt\": \"2026-07-17T18:17:05.951Z\",\n            \"__v\": 0\n        }\n    ]\n}"
+            }
+          ]
+        },
+        {
+          "name": "11. Users - Get By Id",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhNWE2ZDdjOTAyYzU1NTI4ZTA5OWQ3MSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc4NDMxMjQwMywiZXhwIjoxNzg0MzEzMzAzfQ.d58kAtsNGWvSuCx2kr88fJnvAvIHGMpw6u-iPjvi0xY",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:5000/users/6a5a71a1902c55528e099d72",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "users",
+                "6a5a71a1902c55528e099d72"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "11. Users - Get By Id",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhNWE2ZDdjOTAyYzU1NTI4ZTA5OWQ3MSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc4NDMxMjQwMywiZXhwIjoxNzg0MzEzMzAzfQ.d58kAtsNGWvSuCx2kr88fJnvAvIHGMpw6u-iPjvi0xY",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "http://localhost:5000/users/6a5a71a1902c55528e099d72",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "5000",
+                  "path": [
+                    "users",
+                    "6a5a71a1902c55528e099d72"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "367"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"16f-DunAgFTJJTQiCOTjKzEn21x4zCY\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 17 Jul 2026 18:23:13 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"user\": {\n        \"_id\": \"6a5a71a1902c55528e099d72\",\n        \"username\": \"denees\",\n        \"email\": \"deneesdod@gmail.com\",\n        \"phone\": \"\",\n        \"avatar\": \"https://res.cloudinary.com/demo/image/upload/default-avatar.png\",\n        \"avatarPublicId\": null,\n        \"role\": \"customer\",\n        \"wishlist\": [],\n        \"isVerified\": true,\n        \"addresses\": [],\n        \"createdAt\": \"2026-07-17T18:17:05.951Z\",\n        \"updatedAt\": \"2026-07-17T18:17:05.951Z\",\n        \"__v\": 0\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "12. Users - Update Profile",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhNWE2ZDdjOTAyYzU1NTI4ZTA5OWQ3MSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc4NDMxMjQwMywiZXhwIjoxNzg0MzEzMzAzfQ.d58kAtsNGWvSuCx2kr88fJnvAvIHGMpw6u-iPjvi0xY",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "username",
+                  "value": "dina_updated",
+                  "type": "text",
+                  "uuid": "ad41e530-26bd-450d-8ed8-674afedf414b"
+                },
+                {
+                  "key": "phone",
+                  "value": "0791234567",
+                  "type": "text",
+                  "uuid": "258fbad1-22a3-4e1b-ab1d-ec90ce02b357"
+                },
+                {
+                  "key": "avatar",
+                  "type": "file",
+                  "uuid": "17f708de-f5d0-42e9-960e-c8fdbce49591",
+                  "src": "/C:/Users/Lenovo/Desktop/image/414450903_1613459282520614_3955743109429984732_n.jpg"
+                }
+              ]
+            },
+            "url": {
+              "raw": "http://localhost:5000/users/6a5a6d7c902c55528e099d71",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "users",
+                "6a5a6d7c902c55528e099d71"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "12. Users - Update Profile",
+              "originalRequest": {
+                "method": "PATCH",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhNWE2ZDdjOTAyYzU1NTI4ZTA5OWQ3MSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc4NDMxMjQwMywiZXhwIjoxNzg0MzEzMzAzfQ.d58kAtsNGWvSuCx2kr88fJnvAvIHGMpw6u-iPjvi0xY",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "key": "username",
+                      "value": "dina_updated",
+                      "type": "text",
+                      "uuid": "ad41e530-26bd-450d-8ed8-674afedf414b"
+                    },
+                    {
+                      "key": "phone",
+                      "value": "0791234567",
+                      "type": "text",
+                      "uuid": "258fbad1-22a3-4e1b-ab1d-ec90ce02b357"
+                    },
+                    {
+                      "key": "avatar",
+                      "type": "file",
+                      "uuid": "17f708de-f5d0-42e9-960e-c8fdbce49591",
+                      "src": "/C:/Users/Lenovo/Desktop/image/414450903_1613459282520614_3955743109429984732_n.jpg"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "http://localhost:5000/users/6a5a6d7c902c55528e099d71",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "5000",
+                  "path": [
+                    "users",
+                    "6a5a6d7c902c55528e099d71"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "478"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"1de-+FTUfGO3JElM8vfe7V1+3pCVsTI\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 17 Jul 2026 18:27:53 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"message\": \"Profile updated successfully\",\n    \"user\": {\n        \"_id\": \"6a5a6d7c902c55528e099d71\",\n        \"username\": \"dina_updated\",\n        \"email\": \"dinabr456@gmail.com\",\n        \"phone\": \"0791234567\",\n        \"avatar\": \"https://res.cloudinary.com/dhoh7okbe/image/upload/v1784312872/avatars/q4n6aotq67nziubzdcaq.jpg\",\n        \"avatarPublicId\": \"avatars/q4n6aotq67nziubzdcaq\",\n        \"role\": \"admin\",\n        \"wishlist\": [],\n        \"isVerified\": true,\n        \"addresses\": [],\n        \"createdAt\": \"2026-07-17T17:59:24.162Z\",\n        \"updatedAt\": \"2026-07-17T18:27:53.204Z\",\n        \"__v\": 0\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "13. Users - Change Password",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhNWE2ZDdjOTAyYzU1NTI4ZTA5OWQ3MSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc4NDMxMjQwMywiZXhwIjoxNzg0MzEzMzAzfQ.d58kAtsNGWvSuCx2kr88fJnvAvIHGMpw6u-iPjvi0xY",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"currentPassword\": \"NewTest@1234\",\r\n  \"newPassword\": \"updated_NewTest@1234\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5000/users/change-password",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "users",
+                "change-password"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "13. Users - Change Password",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhNWE2ZDdjOTAyYzU1NTI4ZTA5OWQ3MSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc4NDMxMjQwMywiZXhwIjoxNzg0MzEzMzAzfQ.d58kAtsNGWvSuCx2kr88fJnvAvIHGMpw6u-iPjvi0xY",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"currentPassword\": \"NewTest@1234\",\r\n  \"newPassword\": \"updated_NewTest@1234\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:5000/users/change-password",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "5000",
+                  "path": [
+                    "users",
+                    "change-password"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "58"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"3a-q68W5NWhqX5poAtHZphYySdDRQ8\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 17 Jul 2026 18:31:37 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"message\": \"Password changed successfully\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "14. Users - Delete",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhNWE2ZDdjOTAyYzU1NTI4ZTA5OWQ3MSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc4NDMxMjQwMywiZXhwIjoxNzg0MzEzMzAzfQ.d58kAtsNGWvSuCx2kr88fJnvAvIHGMpw6u-iPjvi0xY",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:5000/users/6a5a71a1902c55528e099d72",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "users",
+                "6a5a71a1902c55528e099d72"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "14. Users - Delete",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhNWE2ZDdjOTAyYzU1NTI4ZTA5OWQ3MSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc4NDMxMjQwMywiZXhwIjoxNzg0MzEzMzAzfQ.d58kAtsNGWvSuCx2kr88fJnvAvIHGMpw6u-iPjvi0xY",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "http://localhost:5000/users/6a5a71a1902c55528e099d72",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "5000",
+                  "path": [
+                    "users",
+                    "6a5a71a1902c55528e099d72"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "54"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"36-U3bFObQjPKn4UTk58ToYjyCEL80\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 17 Jul 2026 18:33:50 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"message\": \"User deleted successfully\"\n}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "3. Products",
+      "item": [
+        {
+          "name": "15. Products - Create",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhNWE2ZDdjOTAyYzU1NTI4ZTA5OWQ3MSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc4NDMxMzYwNCwiZXhwIjoxNzg0MzE0NTA0fQ.qKhaZMXWYk-pIsmmnga7OA3ioejGW307MbC50_8pQWw",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "name",
+                  "value": "Wireless Headphones",
+                  "type": "text",
+                  "uuid": "7f14a384-ed74-4515-bc81-8688e547758e"
+                },
+                {
+                  "key": "shortDescription",
+                  "value": "High quality wireless headphones",
+                  "type": "text",
+                  "uuid": "19395563-c7a1-4605-a7cf-1e1aacb7ef6d"
+                },
+                {
+                  "key": "description",
+                  "value": "Full detailed description here",
+                  "type": "text",
+                  "uuid": "895ab71e-e9fd-434b-a2b0-978fa16603f5"
+                },
+                {
+                  "key": "price",
+                  "value": "150",
+                  "type": "text",
+                  "uuid": "7554d066-7b1a-4989-a903-f5b323a09c9e"
+                },
+                {
+                  "key": "discountPrice",
+                  "value": "120",
+                  "type": "text",
+                  "uuid": "b6be594f-d416-4090-8876-7f6ed8776b67"
+                },
+                {
+                  "key": "stock",
+                  "value": "20",
+                  "type": "text",
+                  "uuid": "d0fba57f-eb8d-40a4-9e47-07bbbfd1bee3"
+                },
+                {
+                  "key": "category",
+                  "value": "electronics",
+                  "type": "text",
+                  "uuid": "8dcc7d54-b145-49cd-8510-1e9115377498"
+                },
+                {
+                  "key": "brand",
+                  "value": "SoundMax",
+                  "type": "text",
+                  "uuid": "db0eec3f-c697-4a43-91aa-03642ae022d7"
+                },
+                {
+                  "key": "images",
+                  "type": "file",
+                  "uuid": "028a505c-1b02-45a2-9a78-fc49e4eaa234",
+                  "src": "/C:/Users/Lenovo/Desktop/image/headphone.jpg"
+                }
+              ]
+            },
+            "url": {
+              "raw": "http://localhost:5000/products",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "products"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "15. Products - Create",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhNWE2ZDdjOTAyYzU1NTI4ZTA5OWQ3MSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc4NDMxMzYwNCwiZXhwIjoxNzg0MzE0NTA0fQ.qKhaZMXWYk-pIsmmnga7OA3ioejGW307MbC50_8pQWw",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "key": "name",
+                      "value": "Wireless Headphones",
+                      "type": "text",
+                      "uuid": "7f14a384-ed74-4515-bc81-8688e547758e"
+                    },
+                    {
+                      "key": "shortDescription",
+                      "value": "High quality wireless headphones",
+                      "type": "text",
+                      "uuid": "19395563-c7a1-4605-a7cf-1e1aacb7ef6d"
+                    },
+                    {
+                      "key": "description",
+                      "value": "Full detailed description here",
+                      "type": "text",
+                      "uuid": "895ab71e-e9fd-434b-a2b0-978fa16603f5"
+                    },
+                    {
+                      "key": "price",
+                      "value": "150",
+                      "type": "text",
+                      "uuid": "7554d066-7b1a-4989-a903-f5b323a09c9e"
+                    },
+                    {
+                      "key": "discountPrice",
+                      "value": "120",
+                      "type": "text",
+                      "uuid": "b6be594f-d416-4090-8876-7f6ed8776b67"
+                    },
+                    {
+                      "key": "stock",
+                      "value": "20",
+                      "type": "text",
+                      "uuid": "d0fba57f-eb8d-40a4-9e47-07bbbfd1bee3"
+                    },
+                    {
+                      "key": "category",
+                      "value": "electronics",
+                      "type": "text",
+                      "uuid": "8dcc7d54-b145-49cd-8510-1e9115377498"
+                    },
+                    {
+                      "key": "brand",
+                      "value": "SoundMax",
+                      "type": "text",
+                      "uuid": "db0eec3f-c697-4a43-91aa-03642ae022d7"
+                    },
+                    {
+                      "key": "images",
+                      "type": "file",
+                      "uuid": "028a505c-1b02-45a2-9a78-fc49e4eaa234",
+                      "src": "/C:/Users/Lenovo/Desktop/image/headphone.jpg"
+                    }
+                  ],
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:5000/products",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "5000",
+                  "path": [
+                    "products"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "725"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"2d5-F3M4bOUxnYJ78FUCnfU7hcYYls8\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 17 Jul 2026 18:41:02 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"message\": \"Product created successfully\",\n    \"product\": {\n        \"name\": \"Wireless Headphones\",\n        \"shortDescription\": \"High quality wireless headphones\",\n        \"description\": \"Full detailed description here\",\n        \"price\": 150,\n        \"discountPrice\": 120,\n        \"stock\": 20,\n        \"images\": [\n            {\n                \"public_id\": \"products/rrgq6e9z0t8kdlwkveoj\",\n                \"url\": \"https://res.cloudinary.com/dhoh7okbe/image/upload/v1784313661/products/rrgq6e9z0t8kdlwkveoj.jpg\"\n            }\n        ],\n        \"category\": \"electronics\",\n        \"brand\": \"SoundMax\",\n        \"tags\": [],\n        \"averageRating\": 0,\n        \"numReviews\": 0,\n        \"featured\": false,\n        \"isActive\": true,\n        \"createdBy\": \"6a5a6d7c902c55528e099d71\",\n        \"_id\": \"6a5a773e902c55528e099d73\",\n        \"reviews\": [],\n        \"createdAt\": \"2026-07-17T18:41:02.278Z\",\n        \"updatedAt\": \"2026-07-17T18:41:02.278Z\",\n        \"slug\": \"wireless-headphones-1\",\n        \"__v\": 0\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "16. Products - Get All",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:5000/products?page=1&limit=10",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "products"
+              ],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "key": "limit",
+                  "value": "10"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "16. Products - Get All",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:5000/products?page=1&limit=10",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "5000",
+                  "path": [
+                    "products"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "10"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "731"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"2db-M3zQYsGiWHK0zOi5KeO25zBJv3s\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 17 Jul 2026 18:43:58 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"count\": 1,\n    \"total\": 1,\n    \"page\": 1,\n    \"totalPages\": 1,\n    \"products\": [\n        {\n            \"_id\": \"6a5a773e902c55528e099d73\",\n            \"name\": \"Wireless Headphones\",\n            \"shortDescription\": \"High quality wireless headphones\",\n            \"description\": \"Full detailed description here\",\n            \"price\": 150,\n            \"discountPrice\": 120,\n            \"stock\": 20,\n            \"images\": [\n                {\n                    \"public_id\": \"products/rrgq6e9z0t8kdlwkveoj\",\n                    \"url\": \"https://res.cloudinary.com/dhoh7okbe/image/upload/v1784313661/products/rrgq6e9z0t8kdlwkveoj.jpg\"\n                }\n            ],\n            \"category\": \"electronics\",\n            \"brand\": \"SoundMax\",\n            \"tags\": [],\n            \"averageRating\": 0,\n            \"numReviews\": 0,\n            \"featured\": false,\n            \"isActive\": true,\n            \"createdBy\": \"6a5a6d7c902c55528e099d71\",\n            \"reviews\": [],\n            \"createdAt\": \"2026-07-17T18:41:02.278Z\",\n            \"updatedAt\": \"2026-07-17T18:41:02.278Z\",\n            \"slug\": \"wireless-headphones-1\",\n            \"__v\": 0\n        }\n    ]\n}"
+            }
+          ]
+        },
+        {
+          "name": "17. Products - Search",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:5000/products/search?q=headphones",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "products",
+                "search"
+              ],
+              "query": [
+                {
+                  "key": "q",
+                  "value": "headphones"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "17. Products - Search",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:5000/products/search?q=headphones",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "5000",
+                  "path": [
+                    "products",
+                    "search"
+                  ],
+                  "query": [
+                    {
+                      "key": "q",
+                      "value": "headphones"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "731"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"2db-M3zQYsGiWHK0zOi5KeO25zBJv3s\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 17 Jul 2026 18:45:26 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"count\": 1,\n    \"total\": 1,\n    \"page\": 1,\n    \"totalPages\": 1,\n    \"products\": [\n        {\n            \"_id\": \"6a5a773e902c55528e099d73\",\n            \"name\": \"Wireless Headphones\",\n            \"shortDescription\": \"High quality wireless headphones\",\n            \"description\": \"Full detailed description here\",\n            \"price\": 150,\n            \"discountPrice\": 120,\n            \"stock\": 20,\n            \"images\": [\n                {\n                    \"public_id\": \"products/rrgq6e9z0t8kdlwkveoj\",\n                    \"url\": \"https://res.cloudinary.com/dhoh7okbe/image/upload/v1784313661/products/rrgq6e9z0t8kdlwkveoj.jpg\"\n                }\n            ],\n            \"category\": \"electronics\",\n            \"brand\": \"SoundMax\",\n            \"tags\": [],\n            \"averageRating\": 0,\n            \"numReviews\": 0,\n            \"featured\": false,\n            \"isActive\": true,\n            \"createdBy\": \"6a5a6d7c902c55528e099d71\",\n            \"reviews\": [],\n            \"createdAt\": \"2026-07-17T18:41:02.278Z\",\n            \"updatedAt\": \"2026-07-17T18:41:02.278Z\",\n            \"slug\": \"wireless-headphones-1\",\n            \"__v\": 0\n        }\n    ]\n}"
+            }
+          ]
+        },
+        {
+          "name": "18. Products - Get By Id",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:5000/products/6a5a773e902c55528e099d73",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "products",
+                "6a5a773e902c55528e099d73"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "18. Products - Get By Id",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:5000/products/6a5a773e902c55528e099d73",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "5000",
+                  "path": [
+                    "products",
+                    "6a5a773e902c55528e099d73"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "684"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"2ac-oRWqmrS8WiDLO4RlbQ085S4vsME\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 17 Jul 2026 18:46:27 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"product\": {\n        \"_id\": \"6a5a773e902c55528e099d73\",\n        \"name\": \"Wireless Headphones\",\n        \"shortDescription\": \"High quality wireless headphones\",\n        \"description\": \"Full detailed description here\",\n        \"price\": 150,\n        \"discountPrice\": 120,\n        \"stock\": 20,\n        \"images\": [\n            {\n                \"public_id\": \"products/rrgq6e9z0t8kdlwkveoj\",\n                \"url\": \"https://res.cloudinary.com/dhoh7okbe/image/upload/v1784313661/products/rrgq6e9z0t8kdlwkveoj.jpg\"\n            }\n        ],\n        \"category\": \"electronics\",\n        \"brand\": \"SoundMax\",\n        \"tags\": [],\n        \"averageRating\": 0,\n        \"numReviews\": 0,\n        \"featured\": false,\n        \"isActive\": true,\n        \"createdBy\": \"6a5a6d7c902c55528e099d71\",\n        \"reviews\": [],\n        \"createdAt\": \"2026-07-17T18:41:02.278Z\",\n        \"updatedAt\": \"2026-07-17T18:41:02.278Z\",\n        \"slug\": \"wireless-headphones-1\",\n        \"__v\": 0\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "19. Products - Update",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhNWE2ZDdjOTAyYzU1NTI4ZTA5OWQ3MSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc4NDMxNDIwMywiZXhwIjoxNzg0MzE1MTAzfQ.mOq7foQZN8Cu1Af8HQCKDqv04gEtt814xZbIFNu4fXI",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "price",
+                  "value": "130",
+                  "type": "text",
+                  "uuid": "8086c220-b9ee-4216-9f36-886580818d56"
+                },
+                {
+                  "key": "stock",
+                  "value": "15",
+                  "type": "text",
+                  "uuid": "cf1a1950-af76-4595-9a77-ebe0459c81ec"
+                }
+              ]
+            },
+            "url": {
+              "raw": "http://localhost:5000/products/update/6a5a773e902c55528e099d73",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "products",
+                "update",
+                "6a5a773e902c55528e099d73"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "19. Products - Update",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhNWE2ZDdjOTAyYzU1NTI4ZTA5OWQ3MSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc4NDMxNDIwMywiZXhwIjoxNzg0MzE1MTAzfQ.mOq7foQZN8Cu1Af8HQCKDqv04gEtt814xZbIFNu4fXI",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "key": "price",
+                      "value": "130",
+                      "type": "text",
+                      "uuid": "8086c220-b9ee-4216-9f36-886580818d56"
+                    },
+                    {
+                      "key": "stock",
+                      "value": "15",
+                      "type": "text",
+                      "uuid": "cf1a1950-af76-4595-9a77-ebe0459c81ec"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "http://localhost:5000/products/update/6a5a773e902c55528e099d73",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "5000",
+                  "path": [
+                    "products",
+                    "update",
+                    "6a5a773e902c55528e099d73"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "725"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"2d5-+yKDkV+zmGtfnixICm5vBCRHU8c\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 17 Jul 2026 18:50:54 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"message\": \"Product updated successfully\",\n    \"product\": {\n        \"_id\": \"6a5a773e902c55528e099d73\",\n        \"name\": \"Wireless Headphones\",\n        \"shortDescription\": \"High quality wireless headphones\",\n        \"description\": \"Full detailed description here\",\n        \"price\": 130,\n        \"discountPrice\": 120,\n        \"stock\": 15,\n        \"images\": [\n            {\n                \"public_id\": \"products/rrgq6e9z0t8kdlwkveoj\",\n                \"url\": \"https://res.cloudinary.com/dhoh7okbe/image/upload/v1784313661/products/rrgq6e9z0t8kdlwkveoj.jpg\"\n            }\n        ],\n        \"category\": \"electronics\",\n        \"brand\": \"SoundMax\",\n        \"tags\": [],\n        \"averageRating\": 0,\n        \"numReviews\": 0,\n        \"featured\": false,\n        \"isActive\": true,\n        \"createdBy\": \"6a5a6d7c902c55528e099d71\",\n        \"reviews\": [],\n        \"createdAt\": \"2026-07-17T18:41:02.278Z\",\n        \"updatedAt\": \"2026-07-17T18:50:54.069Z\",\n        \"slug\": \"wireless-headphones-1\",\n        \"__v\": 0\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "20. Products - Add Review",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhNWE2ZDdjOTAyYzU1NTI4ZTA5OWQ3MSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc4NDMxNDIwMywiZXhwIjoxNzg0MzE1MTAzfQ.mOq7foQZN8Cu1Af8HQCKDqv04gEtt814xZbIFNu4fXI",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"rating\": 5,\r\n  \"comment\": \"Excellent product!\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5000/products/6a5a773e902c55528e099d73/reviews",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "products",
+                "6a5a773e902c55528e099d73",
+                "reviews"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "20. Products - Add Review",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhNWE2ZDdjOTAyYzU1NTI4ZTA5OWQ3MSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc4NDMxNDIwMywiZXhwIjoxNzg0MzE1MTAzfQ.mOq7foQZN8Cu1Af8HQCKDqv04gEtt814xZbIFNu4fXI",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"rating\": 5,\r\n  \"comment\": \"Excellent product!\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:5000/products/6a5a773e902c55528e099d73/reviews",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "5000",
+                  "path": [
+                    "products",
+                    "6a5a773e902c55528e099d73",
+                    "reviews"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "87"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"57-83318xcP3mjluYNUOXGvjp9mpK4\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 17 Jul 2026 18:54:42 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"message\": \"Review added successfully\",\n    \"averageRating\": 5,\n    \"numReviews\": 1\n}"
+            }
+          ]
+        },
+        {
+          "name": "21. Products - Get Reviews",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:5000/products/6a5a773e902c55528e099d73/reviews",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "products",
+                "6a5a773e902c55528e099d73",
+                "reviews"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "21. Products - Get Reviews",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:5000/products/6a5a773e902c55528e099d73/reviews",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "5000",
+                  "path": [
+                    "products",
+                    "6a5a773e902c55528e099d73",
+                    "reviews"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "367"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"16f-ZUiJOs0v1eLbnhOhNRbbPQuFbUw\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 17 Jul 2026 18:56:59 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"count\": 1,\n    \"reviews\": [\n        {\n            \"user\": {\n                \"_id\": \"6a5a6d7c902c55528e099d71\",\n                \"username\": \"dina_updated\",\n                \"avatar\": \"https://res.cloudinary.com/dhoh7okbe/image/upload/v1784312872/avatars/q4n6aotq67nziubzdcaq.jpg\"\n            },\n            \"rating\": 5,\n            \"comment\": \"Excellent product!\",\n            \"_id\": \"6a5a7a72902c55528e099d74\",\n            \"createdAt\": \"2026-07-17T18:54:42.749Z\",\n            \"updatedAt\": \"2026-07-17T18:54:42.749Z\"\n        }\n    ]\n}"
+            }
+          ]
+        },
+        {
+          "name": "22. Products - Delete Review",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhNWE2ZDdjOTAyYzU1NTI4ZTA5OWQ3MSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc4NDMxNDIwMywiZXhwIjoxNzg0MzE1MTAzfQ.mOq7foQZN8Cu1Af8HQCKDqv04gEtt814xZbIFNu4fXI",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:5000/products/6a5a773e902c55528e099d73/reviews/6a5a7a72902c55528e099d74",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "products",
+                "6a5a773e902c55528e099d73",
+                "reviews",
+                "6a5a7a72902c55528e099d74"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "22. Products - Delete Review",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhNWE2ZDdjOTAyYzU1NTI4ZTA5OWQ3MSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc4NDMxNDIwMywiZXhwIjoxNzg0MzE1MTAzfQ.mOq7foQZN8Cu1Af8HQCKDqv04gEtt814xZbIFNu4fXI",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "http://localhost:5000/products/6a5a773e902c55528e099d73/reviews/6a5a7a72902c55528e099d74",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "5000",
+                  "path": [
+                    "products",
+                    "6a5a773e902c55528e099d73",
+                    "reviews",
+                    "6a5a7a72902c55528e099d74"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "89"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"59-2xZH/hNqX0wGr43JD787AXeaLQs\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 17 Jul 2026 19:01:55 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"message\": \"Review deleted successfully\",\n    \"averageRating\": 0,\n    \"numReviews\": 0\n}"
+            }
+          ]
+        },
+        {
+          "name": "23. Products - Delete",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhNWE2ZDdjOTAyYzU1NTI4ZTA5OWQ3MSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc4NDMxNDIwMywiZXhwIjoxNzg0MzE1MTAzfQ.mOq7foQZN8Cu1Af8HQCKDqv04gEtt814xZbIFNu4fXI",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:5000/products/6a5a773e902c55528e099d73",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "products",
+                "6a5a773e902c55528e099d73"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "23. Products - Delete",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhNWE2ZDdjOTAyYzU1NTI4ZTA5OWQ3MSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc4NDMxNDIwMywiZXhwIjoxNzg0MzE1MTAzfQ.mOq7foQZN8Cu1Af8HQCKDqv04gEtt814xZbIFNu4fXI",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "http://localhost:5000/products/6a5a773e902c55528e099d73",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "5000",
+                  "path": [
+                    "products",
+                    "6a5a773e902c55528e099d73"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "684"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"2ac-L/aeqkybwz8fxg2OXoVtogIt1wA\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 17 Jul 2026 19:04:44 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"product\": {\n        \"_id\": \"6a5a773e902c55528e099d73\",\n        \"name\": \"Wireless Headphones\",\n        \"shortDescription\": \"High quality wireless headphones\",\n        \"description\": \"Full detailed description here\",\n        \"price\": 130,\n        \"discountPrice\": 120,\n        \"stock\": 15,\n        \"images\": [\n            {\n                \"public_id\": \"products/rrgq6e9z0t8kdlwkveoj\",\n                \"url\": \"https://res.cloudinary.com/dhoh7okbe/image/upload/v1784313661/products/rrgq6e9z0t8kdlwkveoj.jpg\"\n            }\n        ],\n        \"category\": \"electronics\",\n        \"brand\": \"SoundMax\",\n        \"tags\": [],\n        \"averageRating\": 0,\n        \"numReviews\": 0,\n        \"featured\": false,\n        \"isActive\": true,\n        \"createdBy\": \"6a5a6d7c902c55528e099d71\",\n        \"reviews\": [],\n        \"createdAt\": \"2026-07-17T18:41:02.278Z\",\n        \"updatedAt\": \"2026-07-17T19:01:55.152Z\",\n        \"slug\": \"wireless-headphones-1\",\n        \"__v\": 2\n    }\n}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "4. Cart",
+      "item": [
+        {
+          "name": "24. Cart - Get Cart",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhNWE2ZDdjOTAyYzU1NTI4ZTA5OWQ3MSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc4NDMxNTI4NSwiZXhwIjoxNzg0MzE2MTg1fQ.ls1jZ5sRjR4eqFYLKjHpC8D0G41oG9jfP8FC_P8lDwo",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:5000/carts",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "carts"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "24. Cart - Get Cart",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhNWE2ZDdjOTAyYzU1NTI4ZTA5OWQ3MSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc4NDMxNTI4NSwiZXhwIjoxNzg0MzE2MTg1fQ.ls1jZ5sRjR4eqFYLKjHpC8D0G41oG9jfP8FC_P8lDwo",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "http://localhost:5000/carts",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "5000",
+                  "path": [
+                    "carts"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "338"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"152-sIbZFeKxjdSjPuRUO5V3+ZOLZHU\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 17 Jul 2026 19:08:48 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"cart\": {\n        \"user\": \"6a5a6d7c902c55528e099d71\",\n        \"items\": [],\n        \"coupon\": {\n            \"code\": null,\n            \"discountType\": null,\n            \"discountValue\": 0\n        },\n        \"_id\": \"6a5a7dc0902c55528e099d77\",\n        \"createdAt\": \"2026-07-17T19:08:48.237Z\",\n        \"updatedAt\": \"2026-07-17T19:08:48.237Z\",\n        \"__v\": 0,\n        \"subtotal\": 0,\n        \"discountAmount\": 0,\n        \"total\": 0,\n        \"itemCount\": 0,\n        \"id\": \"6a5a7dc0902c55528e099d77\"\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "25. Cart - Add Item",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhNWE2ZDdjOTAyYzU1NTI4ZTA5OWQ3MSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc4NDMxNTI4NSwiZXhwIjoxNzg0MzE2MTg1fQ.ls1jZ5sRjR4eqFYLKjHpC8D0G41oG9jfP8FC_P8lDwo",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"productId\": \"6a5a773e902c55528e099d73\",\r\n  \"quantity\": 2\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5000/carts/items",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "carts",
+                "items"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "25. Cart - Add Item",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhNWE2ZDdjOTAyYzU1NTI4ZTA5OWQ3MSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc4NDMxNTI4NSwiZXhwIjoxNzg0MzE2MTg1fQ.ls1jZ5sRjR4eqFYLKjHpC8D0G41oG9jfP8FC_P8lDwo",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"productId\": \"6a5a773e902c55528e099d73\",\r\n  \"quantity\": 2\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:5000/carts/items",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "5000",
+                  "path": [
+                    "carts",
+                    "items"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "571"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"23b-r8xK7syBJf5RlcmozcMT0QtOTNQ\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 17 Jul 2026 19:15:14 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"message\": \"Item added to cart\",\n    \"cart\": {\n        \"coupon\": {\n            \"code\": null,\n            \"discountType\": null,\n            \"discountValue\": 0\n        },\n        \"_id\": \"6a5a7dc0902c55528e099d77\",\n        \"user\": \"6a5a6d7c902c55528e099d71\",\n        \"items\": [\n            {\n                \"product\": \"6a5a773e902c55528e099d73\",\n                \"name\": \"Wireless Headphones\",\n                \"image\": \"https://res.cloudinary.com/dhoh7okbe/image/upload/v1784313661/products/rrgq6e9z0t8kdlwkveoj.jpg\",\n                \"price\": 120,\n                \"quantity\": 2\n            }\n        ],\n        \"createdAt\": \"2026-07-17T19:08:48.237Z\",\n        \"updatedAt\": \"2026-07-17T19:15:14.235Z\",\n        \"__v\": 1,\n        \"subtotal\": 240,\n        \"discountAmount\": 0,\n        \"total\": 240,\n        \"itemCount\": 2,\n        \"id\": \"6a5a7dc0902c55528e099d77\"\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "26. Cart - Update Item Quantity",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhNWE2ZDdjOTAyYzU1NTI4ZTA5OWQ3MSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc4NDMxNTI4NSwiZXhwIjoxNzg0MzE2MTg1fQ.ls1jZ5sRjR4eqFYLKjHpC8D0G41oG9jfP8FC_P8lDwo",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"productId\": \"6a5a773e902c55528e099d73\",\r\n  \"quantity\": 5\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5000/carts/items",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "carts",
+                "items"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "26. Cart - Update Item Quantity",
+              "originalRequest": {
+                "method": "PATCH",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhNWE2ZDdjOTAyYzU1NTI4ZTA5OWQ3MSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc4NDMxNTI4NSwiZXhwIjoxNzg0MzE2MTg1fQ.ls1jZ5sRjR4eqFYLKjHpC8D0G41oG9jfP8FC_P8lDwo",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"productId\": \"6a5a773e902c55528e099d73\",\r\n  \"quantity\": 5\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:5000/carts/items",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "5000",
+                  "path": [
+                    "carts",
+                    "items"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "579"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"243-dOMGDZ3Pzns01kTuXS1lU0LUp9c\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 17 Jul 2026 19:18:57 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"message\": \"Cart item quantity updated\",\n    \"cart\": {\n        \"coupon\": {\n            \"code\": null,\n            \"discountType\": null,\n            \"discountValue\": 0\n        },\n        \"_id\": \"6a5a7dc0902c55528e099d77\",\n        \"user\": \"6a5a6d7c902c55528e099d71\",\n        \"items\": [\n            {\n                \"product\": \"6a5a773e902c55528e099d73\",\n                \"name\": \"Wireless Headphones\",\n                \"image\": \"https://res.cloudinary.com/dhoh7okbe/image/upload/v1784313661/products/rrgq6e9z0t8kdlwkveoj.jpg\",\n                \"price\": 120,\n                \"quantity\": 5\n            }\n        ],\n        \"createdAt\": \"2026-07-17T19:08:48.237Z\",\n        \"updatedAt\": \"2026-07-17T19:18:57.447Z\",\n        \"__v\": 1,\n        \"subtotal\": 600,\n        \"discountAmount\": 0,\n        \"total\": 600,\n        \"itemCount\": 5,\n        \"id\": \"6a5a7dc0902c55528e099d77\"\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "27. Cart - Apply Coupon",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhNWE2ZDdjOTAyYzU1NTI4ZTA5OWQ3MSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc4NDMxNTI4NSwiZXhwIjoxNzg0MzE2MTg1fQ.ls1jZ5sRjR4eqFYLKjHpC8D0G41oG9jfP8FC_P8lDwo",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{ \"code\": \"SAVE10\" }",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5000/carts/coupon",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "carts",
+                "coupon"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "27. Cart - Apply Coupon",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhNWE2ZDdjOTAyYzU1NTI4ZTA5OWQ3MSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc4NDMxNTI4NSwiZXhwIjoxNzg0MzE2MTg1fQ.ls1jZ5sRjR4eqFYLKjHpC8D0G41oG9jfP8FC_P8lDwo",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{ \"code\": \"SAVE10\" }",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:5000/carts/coupon",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "5000",
+                  "path": [
+                    "carts",
+                    "coupon"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "594"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"252-CjJ6OZQQ5f1lh1PiArhV4CvDNgU\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 17 Jul 2026 19:22:11 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"message\": \"Coupon applied successfully\",\n    \"cart\": {\n        \"coupon\": {\n            \"code\": \"SAVE10\",\n            \"discountType\": \"percentage\",\n            \"discountValue\": 10\n        },\n        \"_id\": \"6a5a7dc0902c55528e099d77\",\n        \"user\": \"6a5a6d7c902c55528e099d71\",\n        \"items\": [\n            {\n                \"product\": \"6a5a773e902c55528e099d73\",\n                \"name\": \"Wireless Headphones\",\n                \"image\": \"https://res.cloudinary.com/dhoh7okbe/image/upload/v1784313661/products/rrgq6e9z0t8kdlwkveoj.jpg\",\n                \"price\": 120,\n                \"quantity\": 5\n            }\n        ],\n        \"createdAt\": \"2026-07-17T19:08:48.237Z\",\n        \"updatedAt\": \"2026-07-17T19:22:11.733Z\",\n        \"__v\": 1,\n        \"subtotal\": 600,\n        \"discountAmount\": 60,\n        \"total\": 540,\n        \"itemCount\": 5,\n        \"id\": \"6a5a7dc0902c55528e099d77\"\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "28. Cart - Remove Coupon",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhNWE2ZDdjOTAyYzU1NTI4ZTA5OWQ3MSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc4NDMxNjI5NCwiZXhwIjoxNzg0MzE3MTk0fQ.MLdXVqeSx2ZP1adTosxUHStLQNmD4-h5qcoN3ty6vqc",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:5000/carts/coupon",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "carts",
+                "coupon"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "28. Cart - Remove Coupon",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhNWE2ZDdjOTAyYzU1NTI4ZTA5OWQ3MSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc4NDMxNjI5NCwiZXhwIjoxNzg0MzE3MTk0fQ.MLdXVqeSx2ZP1adTosxUHStLQNmD4-h5qcoN3ty6vqc",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "http://localhost:5000/carts/coupon",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "5000",
+                  "path": [
+                    "carts",
+                    "coupon"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "567"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"237-6M8dGy0cuRK27z4V2pFDPVcHAI4\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 17 Jul 2026 19:25:40 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"message\": \"Coupon removed\",\n    \"cart\": {\n        \"coupon\": {\n            \"code\": null,\n            \"discountType\": null,\n            \"discountValue\": 0\n        },\n        \"_id\": \"6a5a7dc0902c55528e099d77\",\n        \"user\": \"6a5a6d7c902c55528e099d71\",\n        \"items\": [\n            {\n                \"product\": \"6a5a773e902c55528e099d73\",\n                \"name\": \"Wireless Headphones\",\n                \"image\": \"https://res.cloudinary.com/dhoh7okbe/image/upload/v1784313661/products/rrgq6e9z0t8kdlwkveoj.jpg\",\n                \"price\": 120,\n                \"quantity\": 5\n            }\n        ],\n        \"createdAt\": \"2026-07-17T19:08:48.237Z\",\n        \"updatedAt\": \"2026-07-17T19:25:40.857Z\",\n        \"__v\": 1,\n        \"subtotal\": 600,\n        \"discountAmount\": 0,\n        \"total\": 600,\n        \"itemCount\": 5,\n        \"id\": \"6a5a7dc0902c55528e099d77\"\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "29. Cart - Remove Item",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhNWE2ZDdjOTAyYzU1NTI4ZTA5OWQ3MSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc4NDMxNjI5NCwiZXhwIjoxNzg0MzE3MTk0fQ.MLdXVqeSx2ZP1adTosxUHStLQNmD4-h5qcoN3ty6vqc",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:5000/carts/items/6a5a773e902c55528e099d73",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "carts",
+                "items",
+                "6a5a773e902c55528e099d73"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "29. Cart - Remove Item",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhNWE2ZDdjOTAyYzU1NTI4ZTA5OWQ3MSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc4NDMxNjI5NCwiZXhwIjoxNzg0MzE3MTk0fQ.MLdXVqeSx2ZP1adTosxUHStLQNmD4-h5qcoN3ty6vqc",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "http://localhost:5000/carts/items/6a5a773e902c55528e099d73",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "5000",
+                  "path": [
+                    "carts",
+                    "items",
+                    "6a5a773e902c55528e099d73"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "373"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"175-FBr1aGwm27Ofn/+jETnjjv/KwHI\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 17 Jul 2026 19:29:20 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"message\": \"Item removed from cart\",\n    \"cart\": {\n        \"coupon\": {\n            \"code\": null,\n            \"discountType\": null,\n            \"discountValue\": 0\n        },\n        \"_id\": \"6a5a7dc0902c55528e099d77\",\n        \"user\": \"6a5a6d7c902c55528e099d71\",\n        \"items\": [],\n        \"createdAt\": \"2026-07-17T19:08:48.237Z\",\n        \"updatedAt\": \"2026-07-17T19:29:20.577Z\",\n        \"__v\": 2,\n        \"subtotal\": 0,\n        \"discountAmount\": 0,\n        \"total\": 0,\n        \"itemCount\": 0,\n        \"id\": \"6a5a7dc0902c55528e099d77\"\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "30. Cart - Clear Cart",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhNWE2ZDdjOTAyYzU1NTI4ZTA5OWQ3MSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc4NDMxNjI5NCwiZXhwIjoxNzg0MzE3MTk0fQ.MLdXVqeSx2ZP1adTosxUHStLQNmD4-h5qcoN3ty6vqc",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:5000/carts/clear",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "carts",
+                "clear"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "30. Cart - Clear Cart",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhNWE2ZDdjOTAyYzU1NTI4ZTA5OWQ3MSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc4NDMxNjI5NCwiZXhwIjoxNzg0MzE3MTk0fQ.MLdXVqeSx2ZP1adTosxUHStLQNmD4-h5qcoN3ty6vqc",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "http://localhost:5000/carts/clear",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "5000",
+                  "path": [
+                    "carts",
+                    "clear"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "363"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"16b-L+R3zXIU5MygDyJMv22T7/CWQE0\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 17 Jul 2026 19:32:15 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"message\": \"Cart cleared\",\n    \"cart\": {\n        \"coupon\": {\n            \"code\": null,\n            \"discountType\": null,\n            \"discountValue\": 0\n        },\n        \"_id\": \"6a5a7dc0902c55528e099d77\",\n        \"user\": \"6a5a6d7c902c55528e099d71\",\n        \"items\": [],\n        \"createdAt\": \"2026-07-17T19:08:48.237Z\",\n        \"updatedAt\": \"2026-07-17T19:29:20.577Z\",\n        \"__v\": 2,\n        \"subtotal\": 0,\n        \"discountAmount\": 0,\n        \"total\": 0,\n        \"itemCount\": 0,\n        \"id\": \"6a5a7dc0902c55528e099d77\"\n    }\n}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "5. Wishlist",
+      "item": [
+        {
+          "name": "31. Wishlist - Get My Wishlist",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhNWE2ZDdjOTAyYzU1NTI4ZTA5OWQ3MSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc4NDMxNjI5NCwiZXhwIjoxNzg0MzE3MTk0fQ.MLdXVqeSx2ZP1adTosxUHStLQNmD4-h5qcoN3ty6vqc",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:5000/wishlists/my",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "wishlists",
+                "my"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "31. Wishlist - Get My Wishlist",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhNWE2ZDdjOTAyYzU1NTI4ZTA5OWQ3MSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc4NDMxNjI5NCwiZXhwIjoxNzg0MzE3MTk0fQ.MLdXVqeSx2ZP1adTosxUHStLQNmD4-h5qcoN3ty6vqc",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "http://localhost:5000/wishlists/my",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "5000",
+                  "path": [
+                    "wishlists",
+                    "my"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "196"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"c4-4bvR/IsI38vbN0Ax2R2qLpaVM9k\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 17 Jul 2026 19:39:11 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"wishlist\": {\n        \"user\": \"6a5a6d7c902c55528e099d71\",\n        \"products\": [],\n        \"_id\": \"6a5a84df21c65c07955ffd18\",\n        \"createdAt\": \"2026-07-17T19:39:11.371Z\",\n        \"updatedAt\": \"2026-07-17T19:39:11.371Z\",\n        \"__v\": 0\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "32. Wishlist - Add To Wishlist",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhNWE2ZDdjOTAyYzU1NTI4ZTA5OWQ3MSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc4NDMxNzM4OSwiZXhwIjoxNzg0MzE4Mjg5fQ.BriOuQASqTJvnf2NWUiVJHRZIS96Wpmqc_59J3QHrEI",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:5000/wishlists/add/6a5a773e902c55528e099d73",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "wishlists",
+                "add",
+                "6a5a773e902c55528e099d73"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "32. Wishlist - Add To Wishlist",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhNWE2ZDdjOTAyYzU1NTI4ZTA5OWQ3MSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc4NDMxNzM4OSwiZXhwIjoxNzg0MzE4Mjg5fQ.BriOuQASqTJvnf2NWUiVJHRZIS96Wpmqc_59J3QHrEI",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "http://localhost:5000/wishlists/add/6a5a773e902c55528e099d73",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "5000",
+                  "path": [
+                    "wishlists",
+                    "add",
+                    "6a5a773e902c55528e099d73"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "260"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"104-OMP9CuYsI3dQlQW4UQLvmn+8+1Q\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 17 Jul 2026 19:44:04 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"message\": \"Product added to wishlist\",\n    \"wishlist\": {\n        \"_id\": \"6a5a84df21c65c07955ffd18\",\n        \"user\": \"6a5a6d7c902c55528e099d71\",\n        \"products\": [\n            \"6a5a773e902c55528e099d73\"\n        ],\n        \"createdAt\": \"2026-07-17T19:39:11.371Z\",\n        \"updatedAt\": \"2026-07-17T19:44:04.879Z\",\n        \"__v\": 1\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "33. Wishlist - Remove From Wishlist",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhNWE2ZDdjOTAyYzU1NTI4ZTA5OWQ3MSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc4NDMxNzM4OSwiZXhwIjoxNzg0MzE4Mjg5fQ.BriOuQASqTJvnf2NWUiVJHRZIS96Wpmqc_59J3QHrEI",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:5000/wishlists/remove/6a5a773e902c55528e099d73",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "wishlists",
+                "remove",
+                "6a5a773e902c55528e099d73"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "33. Wishlist - Remove From Wishlist",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhNWE2ZDdjOTAyYzU1NTI4ZTA5OWQ3MSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc4NDMxNzM4OSwiZXhwIjoxNzg0MzE4Mjg5fQ.BriOuQASqTJvnf2NWUiVJHRZIS96Wpmqc_59J3QHrEI",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "http://localhost:5000/wishlists/remove/6a5a773e902c55528e099d73",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "5000",
+                  "path": [
+                    "wishlists",
+                    "remove",
+                    "6a5a773e902c55528e099d73"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "895"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"37f-fzoRlN9YkHW2tCNuMIIAwQuxSDY\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 17 Jul 2026 19:46:57 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"message\": \"Product removed from wishlist\",\n    \"wishlist\": {\n        \"_id\": \"6a5a84df21c65c07955ffd18\",\n        \"user\": \"6a5a6d7c902c55528e099d71\",\n        \"products\": [\n            {\n                \"_id\": \"6a5a773e902c55528e099d73\",\n                \"name\": \"Wireless Headphones\",\n                \"shortDescription\": \"High quality wireless headphones\",\n                \"description\": \"Full detailed description here\",\n                \"price\": 130,\n                \"discountPrice\": 120,\n                \"stock\": 15,\n                \"images\": [\n                    {\n                        \"public_id\": \"products/rrgq6e9z0t8kdlwkveoj\",\n                        \"url\": \"https://res.cloudinary.com/dhoh7okbe/image/upload/v1784313661/products/rrgq6e9z0t8kdlwkveoj.jpg\"\n                    }\n                ],\n                \"category\": \"electronics\",\n                \"brand\": \"SoundMax\",\n                \"tags\": [],\n                \"averageRating\": 0,\n                \"numReviews\": 0,\n                \"featured\": false,\n                \"isActive\": true,\n                \"createdBy\": \"6a5a6d7c902c55528e099d71\",\n                \"reviews\": [],\n                \"createdAt\": \"2026-07-17T18:41:02.278Z\",\n                \"updatedAt\": \"2026-07-17T19:01:55.152Z\",\n                \"slug\": \"wireless-headphones-1\",\n                \"__v\": 2\n            }\n        ],\n        \"createdAt\": \"2026-07-17T19:39:11.371Z\",\n        \"updatedAt\": \"2026-07-17T19:44:04.879Z\",\n        \"__v\": 1\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "34. Wishlist - Clear Wishlist",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhNWE2ZDdjOTAyYzU1NTI4ZTA5OWQ3MSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc4NDMxNzM4OSwiZXhwIjoxNzg0MzE4Mjg5fQ.BriOuQASqTJvnf2NWUiVJHRZIS96Wpmqc_59J3QHrEI",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:5000/wishlists/clear",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "wishlists",
+                "clear"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "34. Wishlist - Clear Wishlist",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhNWE2ZDdjOTAyYzU1NTI4ZTA5OWQ3MSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc4NDMxNzM4OSwiZXhwIjoxNzg0MzE4Mjg5fQ.BriOuQASqTJvnf2NWUiVJHRZIS96Wpmqc_59J3QHrEI",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "http://localhost:5000/wishlists/clear",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "5000",
+                  "path": [
+                    "wishlists",
+                    "clear"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "225"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"e1-fdxy44672KW0p0ksCvpNCLWqWNI\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 17 Jul 2026 19:50:41 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"message\": \"Wishlist cleared\",\n    \"wishlist\": {\n        \"_id\": \"6a5a84df21c65c07955ffd18\",\n        \"user\": \"6a5a6d7c902c55528e099d71\",\n        \"products\": [],\n        \"createdAt\": \"2026-07-17T19:39:11.371Z\",\n        \"updatedAt\": \"2026-07-17T19:50:41.238Z\",\n        \"__v\": 2\n    }\n}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
