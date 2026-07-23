@@ -4,13 +4,11 @@ A full-featured RESTful Ecommerce API built with **Node.js**, **Express**, and *
 Built as part of a 4-week hands-on backend training program (SEF Academy).
 
 Covers the complete lifecycle of an online store — user authentication, user management,
-product management, cart, orders, payments, and an admin dashboard.
+product management, cart, wishlist, orders, and an admin dashboard.
 
 ---
 
 ## 🚧 Project Status
-
-This project is being built section by section. Current progress:
 
 | Section | Status |
 |---|---|
@@ -20,8 +18,8 @@ This project is being built section by section. Current progress:
 | Products (`/products`) | ✅ Completed & tested |
 | Cart (`/carts`) | ✅ Completed & tested |
 | Wishlist (`/wishlists`) | ✅ Completed & tested |
-| Orders (`/orders`) | ⏳ Planned |
-| Admin Dashboard (`/admin`) | ⏳ Planned |
+| Orders (`/orders`) | ✅ Completed & tested |
+| Admin Dashboard (under `/orders/admin` & `/wishlists/admin`) | ✅ Completed & tested |
 
 ---
 
@@ -32,18 +30,19 @@ This project is being built section by section. Current progress:
 | Node.js | Server-side JavaScript runtime |
 | Express.js | Web framework — routing, middleware, error handling |
 | MongoDB | NoSQL document database |
-| Mongoose | ODM — schemas, models, validation, hooks |
+| Mongoose | ODM — schemas, models, validation, hooks, transactions |
 | JWT | Stateless authentication — short-lived access tokens + long-lived refresh tokens |
 | bcryptjs | Secure password & OTP hashing |
 | crypto (built-in) | Secure random token generation for password reset |
 | Joi | Request data validation |
-| Nodemailer | Email sending (OTP verification, password reset) |
-| Cloudinary | Cloud image storage — used for user avatars |
+| Nodemailer | Email sending (OTP verification, password reset, order status updates) |
+| Cloudinary | Cloud image storage — used for user avatars and product images |
 | Multer | Handling `multipart/form-data` (image uploads) |
 | dotenv | Environment variable management |
 | cors | Cross-Origin Resource Sharing |
 | cookie-parser | Parsing the refresh token cookie |
 | morgan | HTTP request logging |
+| slugify | Auto-generating URL-friendly product slugs |
 
 ---
 
@@ -52,36 +51,39 @@ This project is being built section by section. Current progress:
 ```
 nodejs-ecommerce-backend-api/
 ├── config/
-│   └── cloudinary.js         → Cloudinary configuration
+│   └── cloudinary.js           → Cloudinary configuration
 ├── constants/
-│   └── coupons.js             → Static coupon codes for the cart
-├── models/                    → Mongoose schemas and models
+│   └── coupons.js               → Static coupon codes for the cart
+├── models/                       → Mongoose schemas and models
 │   ├── User.model.js
 │   ├── OTP.model.js
 │   ├── Product.model.js
 │   ├── Order.model.js
 │   ├── Cart.model.js
 │   └── Wishlist.model.js
-├── controllers/                → Business logic for every resource
+├── controllers/                   → Business logic for every resource
 │   ├── authController.js
 │   ├── userController.js
 │   ├── productController.js
 │   ├── cartController.js
-│   └── wishlistController.js
+│   ├── wishlistController.js
+│   ├── orderController.js
+│   └── adminController.js         → Dashboard stats, admin carts/wishlists overview
 ├── DB/
-│   └── connection.js            → Database connection
-├── routes/                       → Express route definitions
+│   └── connection.js               → Database connection
+├── routes/                          → Express route definitions
 │   ├── auth.routes.js
 │   ├── user.routes.js
 │   ├── product.routes.js
 │   ├── cart.routes.js
-│   └── wishlist.routes.js
-├── middleware/                    → Auth guard, admin guard, validation, upload
+│   ├── wishlist.routes.js
+│   └── order.routes.js
+├── middleware/                       → Auth guard, admin guard, validation, upload
 │   ├── auth.js
 │   ├── adminOnly.js
 │   ├── validate.js
 │   └── upload.js
-├── utils/                          → Helper functions
+├── utils/                             → Helper functions
 │   ├── generateOTP.js
 │   ├── generateToken.js
 │   ├── generateRefreshToken.js
@@ -90,13 +92,15 @@ nodejs-ecommerce-backend-api/
 │   ├── uploadToCloudinary.js
 │   ├── uploadMultipleToCloudinary.js
 │   └── deleteFromCloudinary.js
-├── validation/                      → Joi validation schemas
+├── validation/                         → Joi validation schemas
 │   ├── userValidation.js
-│   └── productValidation.js
-├── postman/                          → Postman collection for API testing
+│   ├── productValidation.js
+│   ├── cartValidation.js
+│   └── orderValidation.js
+├── postman/                             → Postman collection for API testing
 │   └── Ecommerce-API.postman_collection.json
-├── index.js                           → App entry point
-├── .env.example                       → Environment variables template
+├── index.js                              → App entry point
+├── .env.example                          → Environment variables template
 └── package.json
 ```
 
@@ -105,36 +109,27 @@ nodejs-ecommerce-backend-api/
 ## ⚙️ Getting Started
 
 ### 1. Clone the repository
-
 ```bash
 git clone https://github.com/your-username/nodejs-ecommerce-backend-api.git
 cd nodejs-ecommerce-backend-api
 ```
 
 ### 2. Install dependencies
-
 ```bash
 npm install
 ```
 
 ### 3. Set up environment variables
-
-Copy the example file and fill in your own values:
-
 ```bash
 cp .env.example .env
 ```
-
-See the [Environment Variables](#-environment-variables) section below for details on each value.
+See the [Environment Variables](#-environment-variables) section below.
 
 ### 4. Run the server
-
 ```bash
 npm run dev
 ```
-
-If everything is configured correctly, you should see:
-
+Expected output:
 ```
 Server running on port 5000
 MongoDB Connected: <your-cluster-host>
@@ -143,8 +138,6 @@ MongoDB Connected: <your-cluster-host>
 ---
 
 ## 🔑 Environment Variables
-
-Create a `.env` file in the project root with the following:
 
 ```env
 # Server
@@ -162,41 +155,34 @@ JWT_EXPIRE=15m
 REFRESH_TOKEN_SECRET=a_different_super_secret_key_here
 REFRESH_TOKEN_EXPIRE=7d
 
-# Email (Nodemailer) — used for OTP verification and password reset
+# Email (Nodemailer)
 EMAIL_HOST=smtp.gmail.com
 EMAIL_PORT=587
 EMAIL_USER=your_email@gmail.com
 EMAIL_PASS=your_gmail_app_password
 
-# Cloudinary — used for user avatar uploads
+# Cloudinary
 CLOUDINARY_CLOUD_NAME=your_cloud_name
 CLOUDINARY_API_KEY=your_api_key
 CLOUDINARY_API_SECRET=your_api_secret
 ```
 
 > **Note:** For Gmail, `EMAIL_PASS` must be a Google **App Password**, not your regular account password.
-> Generate one at [myaccount.google.com/apppasswords](https://myaccount.google.com/apppasswords)
-> (requires 2-Step Verification to be enabled on your Google account).
-
-> **Note:** `JWT_SECRET` and `REFRESH_TOKEN_SECRET` must be two different values. If they were the
-> same, a stolen access token could be used to forge a refresh token, defeating the purpose of
-> having two separate tokens.
+> **Note:** `JWT_SECRET` and `REFRESH_TOKEN_SECRET` must be two different values.
 
 ---
 
 ## 📡 API Endpoints — Authentication (`/auth`)
 
-Base URL: `http://localhost:5000`
-
 | Method | Endpoint | Description | Auth |
 |---|---|---|---|
-| POST | `/auth/register/send-otp` | Register a new user — sends a verification OTP by email | Public |
-| POST | `/auth/verify-otp` | Verify the OTP and activate the account (no token returned — log in afterward) | Public |
-| POST | `/auth/login` | Log in — returns an access token (body) + refresh token (httpOnly cookie) | Public |
+| POST | `/auth/register/send-otp` | Register — sends a verification OTP by email | Public |
+| POST | `/auth/verify-otp` | Verify the OTP and activate the account (no token returned) | Public |
+| POST | `/auth/login` | Log in — returns access token (body) + refresh token (cookie) | Public |
 | POST | `/auth/refresh-token` | Issue a new access token using the refresh token cookie | Public (cookie) |
 | POST | `/auth/logout` | Log out — clears the refresh token cookie | Private |
 | POST | `/auth/forgotpassword/send-token` | Request a password reset — sends a crypto reset token by email | Public |
-| POST | `/auth/forgotpassword/verify-token` | Verify the reset token (`token` field), set a new password, and auto-log-in | Public |
+| POST | `/auth/forgotpassword/verify-token` | Verify the reset token, set a new password, and auto-log-in | Public |
 | GET | `/auth/me` | Get the authenticated user's profile | Private |
 
 ---
@@ -206,27 +192,20 @@ Base URL: `http://localhost:5000`
 | Method | Endpoint | Description | Auth |
 |---|---|---|---|
 | POST | `/users/add` | Create a user directly (no OTP needed) | Admin |
-| GET | `/users/all` | Get all users | Admin |
+| GET | `/users/all` | Get all users (paginated) | Admin |
 | GET | `/users/:id` | Get a single user by ID | Admin |
-| PATCH | `/users/:id` | Update own profile — `username`, `phone`, `addresses`, `avatar` (multipart/form-data) | Owner only |
-| DELETE | `/users/:id` | Delete a user | Admin |
-| POST | `/users/change-password` | Change own password — requires `currentPassword` + `newPassword` | Owner only |
+| PATCH | `/users/:id` | Update own profile — username, phone, addresses, avatar (multipart/form-data) | Owner only |
+| DELETE | `/users/:id` | Delete a user (also removes their avatar from Cloudinary) | Admin |
+| POST | `/users/change-password` | Change own password — requires currentPassword + newPassword | Owner only |
 
 **Notes:**
-- The `PATCH /users/:id` route must be sent as `multipart/form-data` (not raw JSON) since it accepts
-  an optional avatar image file. Password and email cannot be changed through this route.
-- `PATCH /users/:id` requires at least one field to update — an empty request returns a `400` error.
-- `GET /users/all` supports pagination via `?page=` and `?limit=` query parameters (defaults: page 1, limit 10).
-- `DELETE /users/:id` also removes the user's avatar from Cloudinary (if one was uploaded).
+- `PATCH /users/:id` must be sent as `multipart/form-data`; requires at least one field to update
+  (an empty request returns `400`). Password and email cannot be changed through this route.
+- `GET /users/all` supports pagination via `?page=` and `?limit=` (defaults: page 1, limit 10).
 - `POST /users/change-password` always acts on the logged-in user (`req.user`) — there is no way to
-  target another user's account, so an admin can never change another user's password through this route.
-- Admin-only routes require the authenticated user's role to be `admin`. There is no public endpoint
-  to self-promote to admin — this must be done directly in the database.
-
-**Private routes** require an `Authorization` header:
-```
-Authorization: Bearer <access_token>
-```
+  target another user's account, so **an admin can never change another user's password** through
+  this route.
+- There is no public endpoint to self-promote to admin — this must be done directly in the database.
 
 ---
 
@@ -234,27 +213,22 @@ Authorization: Bearer <access_token>
 
 | Method | Endpoint | Description | Auth |
 |---|---|---|---|
-| GET | `/products` | Get all active products — pagination, category/brand/price filters, sorting | Public |
+| GET | `/products` | Get all active products — pagination, filters, sorting | Public |
 | GET | `/products/search` | Advanced text search with filters and sorting | Public |
-| GET | `/products/:id` | Get a single product by ID | Public |
-| POST | `/products` | Create a product with one or more images (multipart/form-data) | Admin |
-| PUT | `/products/update/:id` | Update a product — delete specific images and/or upload new ones | Admin |
-| DELETE | `/products/:id` | Delete a product and remove all its images from Cloudinary | Admin |
+| GET | `/products/:id` | Get a single product (404 if inactive) | Public |
+| POST | `/products` | Create a product with images (multipart/form-data) | Admin |
+| PUT | `/products/update/:id` | Update a product — delete/add images | Admin |
+| DELETE | `/products/:id` | Delete a product and its images from Cloudinary | Admin |
 | POST | `/products/:id/reviews` | Add a review (one per user per product) | Logged-in user |
 | DELETE | `/products/:id/reviews/:rid` | Delete a review | Review owner or Admin |
 | GET | `/products/:id/reviews` | Get all reviews for a product | Public |
 
 **Notes:**
-- `GET /products/:id` returns `404` for inactive products, consistent with `GET /products` (which
-  already excludes them from the list) — an inactive product is treated as not found by regular users.
-- `POST /products` validates, before creating anything: at least one image is provided, `discountPrice`
-  (if given) is strictly less than `price`, and the `sku` (if given) isn't already used by another product.
-- If any image fails to upload during product creation, the request fails immediately with no product
-  created — there's no risk of ending up with a "half-created" product.
-- `POST /products` and `PUT /products/update/:id` must be sent as `multipart/form-data`, with images
-  under the field name `images` (supports multiple files).
-- The product `slug` is generated automatically from the `name` field, with a numeric suffix
-  (e.g. `red-shoes-2`) added automatically if the base slug is already taken.
+- `GET /products/:id` returns `404` for inactive products, consistent with `GET /products`.
+- `POST /products` validates before creating anything: at least one image, `discountPrice` <
+  `price`, and `sku` uniqueness. Image upload failures roll back any images that did succeed.
+- The product `slug` is generated automatically from `name`, with a numeric suffix (e.g.
+  `red-shoes-2`) added if the base slug is already taken.
 - `averageRating` and `numReviews` are recalculated automatically whenever a review is added or removed.
 
 ---
@@ -263,25 +237,20 @@ Authorization: Bearer <access_token>
 
 | Method | Endpoint | Description | Auth |
 |---|---|---|---|
-| GET | `/carts` | Get the user's cart — creates one automatically if it doesn't exist | User |
-| POST | `/carts/items` | Add an item to the cart — deducts stock immediately | User |
-| PATCH | `/carts/items` | Set a new quantity for an item — adjusts stock by the exact difference | User |
-| DELETE | `/carts/items/:productId` | Remove an item — restores its stock | User |
-| POST | `/carts/coupon` | Apply a discount coupon to the cart | User |
-| DELETE | `/carts/coupon` | Remove the currently applied coupon | User |
-| DELETE | `/carts/clear` | Clear all items and the coupon, restoring stock for every item | User |
+| GET | `/carts` | Get the user's cart — created automatically if it doesn't exist | User |
+| POST | `/carts/items` | Add an item — only **validates** stock, does not deduct it | User |
+| PATCH | `/carts/items` | Set a new quantity — only **validates** stock, does not modify it | User |
+| DELETE | `/carts/items/:productId` | Remove an item — stock is untouched | User |
+| POST | `/carts/coupon` | Apply a discount coupon | User |
+| DELETE | `/carts/coupon` | Remove the applied coupon | User |
+| DELETE | `/carts/clear` | Clear all items and the coupon | User |
 
 **Notes:**
-- Coupon codes are defined as a static object in `constants/coupons.js` (`SAVE10`, `SAVE20`, `SAVE50`,
-  `SAVE80` as percentage discounts, `OFF50` as a fixed discount) — add new codes there without touching
-  any other file.
-- `subtotal`, `discountAmount`, `total`, and `itemCount` are Mongoose **virtuals** — computed live from
-  the cart's items and coupon on every read, never stored in the database, so they can never go out of sync.
-- Adding an item snapshots the product's current name, image, and price into the cart line — so the
-  cart stays accurate even if the product is later renamed or repriced.
-- Adding or updating a cart item only **checks** the product's available stock — it does **not** deduct
-  or restore anything from `Product.stock`. The cart represents intent to buy, not a reservation; actual
-  stock is only touched when a real order is placed (planned for the Orders module).
+- Coupons live in `constants/coupons.js` as a static object (`SAVE10`, `SAVE20`, `SAVE50`, `SAVE80`,
+  `OFF50`).
+- `subtotal`, `discountAmount`, `total`, `itemCount` are Mongoose **virtuals** — computed live, never stored.
+- **The cart never modifies `Product.stock`.** It only checks that enough stock exists. Actual stock
+  is only deducted when a real order is placed (see Orders below).
 
 ---
 
@@ -293,48 +262,101 @@ Authorization: Bearer <access_token>
 | POST | `/wishlists/add/:productId` | Add a product to the wishlist | User |
 | DELETE | `/wishlists/remove/:productId` | Remove a product from the wishlist | User |
 | DELETE | `/wishlists/clear` | Clear the entire wishlist | User |
+| GET | `/wishlists/admin/all` | View all user wishlists (paginated) | Admin |
+| GET | `/wishlists/admin/stats` | Top 10 most wishlisted products | Admin |
 
 **Notes:**
-- A `pre('find')` hook automatically populates full product details on every query — the client never
-  needs a second request to get product info for wishlist items.
-- Adding the same product twice returns a `409 Conflict` instead of creating a duplicate entry.
+- A `pre('find')` hook auto-populates full product details on every query.
+- Adding a duplicate product returns `409 Conflict`.
+- Admin routes for orders and wishlists live under their own resource (`/orders/admin/...` and
+  `/wishlists/admin/...`) rather than a separate `/admin` module, to keep each resource's admin
+  actions grouped with the resource itself.
+
+---
+
+## 📡 API Endpoints — Orders (`/orders`)
+
+| Method | Endpoint | Description | Auth |
+|---|---|---|---|
+| POST | `/orders` | Create an order from the cart — wrapped in a Mongoose Transaction | User |
+| GET | `/orders/my` | Get the user's own orders (pagination + status filter) | User |
+| GET | `/orders/my/:id` | Get a specific order (owner only) | User |
+| PATCH | `/orders/my/:id/cancel` | Cancel an order — only if pending/confirmed. Restores stock | User |
+| GET | `/orders/admin/dashboard` | Revenue stats, order counts by status, top 5 products, daily revenue (7 days), recent orders, total customers | Admin |
+| GET | `/orders/admin/carts` | View all active (non-empty) carts with user info | Admin |
+| GET | `/orders/admin` | Get all orders — filters by status/payment/date, sorting | Admin |
+| GET | `/orders/admin/:id` | Get full details of any order | Admin |
+| PATCH | `/orders/admin/:id/status` | Update order status — emails the customer automatically | Admin |
+
+**Notes:**
+- `POST /orders` is wrapped in a **Mongoose Transaction**: stock is validated and deducted
+  atomically for every item (using `findOneAndUpdate` with a `stock >= quantity` guard to prevent
+  race conditions), the order is created, and the cart is cleared — all together, or none at all
+  if any step fails.
+- Cart items only ever check stock (never touch it); **the order is the first point where stock is
+  actually deducted.**
+- `shippingFee` is `0` if `subtotal >= 1000`, otherwise `50`. `tax` is `14%` of the subtotal.
+  `totalPrice = subtotal + shippingFee + tax - discount`.
+- Cancelling an order (while still pending/confirmed) restores stock for every item.
+- The dashboard runs multiple MongoDB **aggregation pipelines in parallel** via `Promise.all`.
+- Admin-specific static routes (`dashboard`, `carts`) are registered before the dynamic `/admin/:id`
+  route, so Express doesn't mistake "dashboard" or "carts" for an order ID.
 
 ---
 
 ## 🔁 Refresh Token Flow
 
-To avoid forcing users to log in every time their session expires, the API uses two tokens:
+| Token | Lifespan | Where it lives |
+|---|---|---|
+| Access Token | 15 min | Returned in the JSON response body |
+| Refresh Token | 7 days | `httpOnly` cookie |
 
-| Token | Lifespan | Where it lives | Purpose |
-|---|---|---|---|
-| Access Token | Short (15 min) | Returned in the JSON response body | Sent with every authenticated request |
-| Refresh Token | Long (7 days) | `httpOnly` cookie (not readable by JavaScript) | Used only to request a new access token |
+The client uses the access token for requests, and calls `POST /auth/refresh-token` (cookie sent
+automatically) to get a new one once it expires — no need to log in again.
 
-**Typical flow:**
-1. User logs in → receives an access token + a refresh token cookie is set automatically.
-2. Client uses the access token for authenticated requests.
-3. When the access token expires, the client calls `POST /auth/refresh-token` (the cookie is sent
-   automatically by the browser/Postman) to get a new access token — without re-entering credentials.
-4. On logout, the refresh token cookie is cleared.
+---
+
+## 🧪 Testing with Postman
+
+A ready-to-use Postman collection is included at:
+```
+postman/Ecommerce-API.postman_collection.json
+```
+
+It's organized into folders matching each module — Authentication, Users, Products, Cart,
+Wishlist, Orders, and Admin Dashboard — with 46 requests total, automated status-code tests, and
+variable chaining (the token, product id, order id, etc. are captured automatically as you go
+through the requests in order).
+
+**To use it:**
+1. Open Postman → click **Import** → select `postman/Ecommerce-API.postman_collection.json`
+2. Make sure the server is running locally on `http://localhost:5000`
+3. Open the collection's **Variables** tab and set `test_email` to a real email you can access
+4. Run the **Authentication** folder first (in order) to get a token, then proceed folder by folder
+
+> To test admin-only routes, manually set a user's `role` field to `"admin"` in MongoDB Atlas —
+> there is no API endpoint that grants admin access.
 
 ---
 
 ## 🔒 Security Notes
 
-- Passwords and registration OTP codes are hashed with `bcryptjs` before being stored — never stored in plain text.
-- Password reset uses a **crypto-generated token** (via Node's built-in `crypto` module), stored as a SHA-256 hash directly on the `User` document (`resetPasswordToken`, `resetPasswordExpire`) — not the OTP collection.
-- Changing your own password requires your **current password** — no email or OTP step is involved, since the user is already authenticated.
-- Sensitive fields (`password`, `resetPasswordToken`) use Mongoose's `select: false` so they're never returned by default in queries.
-- The `role` field is never included in any API response body — it's only ever embedded (encoded) inside the JWT itself, which the server decodes internally. Clients never see it directly.
-- Registration OTP documents use a MongoDB **TTL index**, so expired codes are automatically deleted by the database.
-- The access token is only ever issued at `/auth/login` (or after a successful password reset) — verifying the registration OTP does **not** return a token; the user must log in afterward.
-- The refresh token is stored in an `httpOnly` cookie, signed with a secret separate from the access token's secret — this limits the damage if one secret is ever compromised.
-- Uploaded avatar images are streamed directly to Cloudinary (never saved to local disk), and the previous avatar is deleted from Cloudinary when a new one is uploaded.
-- When uploading multiple product images, if any single image fails to upload, the images that DID succeed are automatically deleted from Cloudinary (rollback) — preventing orphaned files from accumulating.
-- `.env` is excluded from version control via `.gitignore` — never commit real credentials.
+- Passwords and registration OTP codes are hashed with `bcryptjs`; never stored in plain text.
+- Password reset uses a crypto-generated token (Node's `crypto` module), stored as a SHA-256 hash
+  directly on the `User` document.
+- Changing your own password requires your current password — no OTP/email step needed.
+- Sensitive fields (`password`, `resetPasswordToken`, OTP's `otp`) use `select: false`.
+- The `role` field is never included in API response bodies — only embedded inside the JWT.
+- Registration OTPs use a MongoDB **TTL index** for automatic cleanup.
+- The refresh token cookie is `httpOnly`, signed with a secret separate from the access token's.
+- Product images are streamed directly to Cloudinary (never saved to disk); failed uploads roll
+  back any images that did succeed.
+- Order creation uses a Mongoose Transaction with atomic stock checks to prevent race conditions
+  and partial/inconsistent order states.
+- `.env` is excluded from version control via `.gitignore`.
 
 ---
 
 ## 📄 License
 
-This project was built for educational purposes as part of the SEF Academy backend training program.
+Built for educational purposes as part of the SEF Academy backend training program.

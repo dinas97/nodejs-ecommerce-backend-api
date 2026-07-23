@@ -3560,6 +3560,1142 @@
               "body": "{\n    \"success\": true,\n    \"message\": \"Wishlist cleared\",\n    \"wishlist\": {\n        \"_id\": \"6a5a84df21c65c07955ffd18\",\n        \"user\": \"6a5a6d7c902c55528e099d71\",\n        \"products\": [],\n        \"createdAt\": \"2026-07-17T19:39:11.371Z\",\n        \"updatedAt\": \"2026-07-17T19:50:41.238Z\",\n        \"__v\": 2\n    }\n}"
             }
           ]
+        },
+        {
+          "name": "35. Wishlist - Admin Get All Wishlists",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhNWE2ZDdjOTAyYzU1NTI4ZTA5OWQ3MSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc4NDgyMjQxOSwiZXhwIjoxNzg0ODIzMzE5fQ.5p26iBiZBYfhgzx3GG3uFhtDdiZVIAz0ju-kYMYhHOw",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:5000/wishlists/admin/all?page=1&limit=10",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "wishlists",
+                "admin",
+                "all"
+              ],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "key": "limit",
+                  "value": "10"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "35. Wishlist - Admin Get All Wishlists",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhNWE2ZDdjOTAyYzU1NTI4ZTA5OWQ3MSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc4NDgyMjQxOSwiZXhwIjoxNzg0ODIzMzE5fQ.5p26iBiZBYfhgzx3GG3uFhtDdiZVIAz0ju-kYMYhHOw",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "http://localhost:5000/wishlists/admin/all?page=1&limit=10",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "5000",
+                  "path": [
+                    "wishlists",
+                    "admin",
+                    "all"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "10"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "307"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"133-KD6D4wJ4gJmnOe9OI465CVQecIw\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Thu, 23 Jul 2026 16:01:59 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"count\": 1,\n    \"total\": 1,\n    \"page\": 1,\n    \"totalPages\": 1,\n    \"wishlists\": [\n        {\n            \"_id\": \"6a5a84df21c65c07955ffd18\",\n            \"user\": {\n                \"_id\": \"6a5a6d7c902c55528e099d71\",\n                \"username\": \"dina_updated\",\n                \"email\": \"dinabr456@gmail.com\"\n            },\n            \"products\": [],\n            \"createdAt\": \"2026-07-17T19:39:11.371Z\",\n            \"updatedAt\": \"2026-07-17T19:50:41.238Z\",\n            \"__v\": 2\n        }\n    ]\n}"
+            }
+          ]
+        },
+        {
+          "name": "36. Wishlist - Admin Wishlist Stats",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhNWE2ZDdjOTAyYzU1NTI4ZTA5OWQ3MSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc4NDgyMjQxOSwiZXhwIjoxNzg0ODIzMzE5fQ.5p26iBiZBYfhgzx3GG3uFhtDdiZVIAz0ju-kYMYhHOw",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:5000/wishlists/admin/stats",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "wishlists",
+                "admin",
+                "stats"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "36. Wishlist - Admin Wishlist Stats",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhNWE2ZDdjOTAyYzU1NTI4ZTA5OWQ3MSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc4NDgyMjQxOSwiZXhwIjoxNzg0ODIzMzE5fQ.5p26iBiZBYfhgzx3GG3uFhtDdiZVIAz0ju-kYMYhHOw",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "http://localhost:5000/wishlists/admin/stats",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "5000",
+                  "path": [
+                    "wishlists",
+                    "admin",
+                    "stats"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "27"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"1b-h7lzfw8aT17rQXTn46I1a8TXzMY\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Thu, 23 Jul 2026 16:04:27 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"stats\": []\n}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "6. Orders",
+      "item": [
+        {
+          "name": "37. Orders - Create Order",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhNWE2ZDdjOTAyYzU1NTI4ZTA5OWQ3MSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc4NDgyMjkxOCwiZXhwIjoxNzg0ODIzODE4fQ.3WTsgAR90t-q4l6BzQPMHkNdL2RrMXRaHw2dPIReYm8",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"shippingAddress\": {\r\n    \"fullName\": \"Dina Saba\",\r\n    \"phone\": \"0791234567\",\r\n    \"country\": \"Syria\",\r\n    \"city\": \"Tartous\",\r\n    \"address\": \"Street 12, Building 5\",\r\n    \"postalCode\": \"11941\"\r\n  },\r\n  \"paymentMethod\": \"cash\",\r\n  \"customerNote\": \"Please deliver in the evening\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5000/orders",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "orders"
+              ],
+              "query": [
+                {
+                  "key": "",
+                  "value": "",
+                  "type": "text",
+                  "disabled": true
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "37. Orders - Create Order",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhNWE2ZDdjOTAyYzU1NTI4ZTA5OWQ3MSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc4NDgyMjkxOCwiZXhwIjoxNzg0ODIzODE4fQ.3WTsgAR90t-q4l6BzQPMHkNdL2RrMXRaHw2dPIReYm8",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"shippingAddress\": {\r\n    \"fullName\": \"Dina Saba\",\r\n    \"phone\": \"0791234567\",\r\n    \"country\": \"Syria\",\r\n    \"city\": \"Tartous\",\r\n    \"address\": \"Street 12, Building 5\",\r\n    \"postalCode\": \"11941\"\r\n  },\r\n  \"paymentMethod\": \"cash\",\r\n  \"customerNote\": \"Please deliver in the evening\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:5000/orders",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "5000",
+                  "path": [
+                    "orders"
+                  ],
+                  "query": [
+                    {
+                      "key": "",
+                      "value": "",
+                      "type": "text",
+                      "disabled": true
+                    }
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "843"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"34b-W66IkzhoyfeUv32VWGAnxgd3rIA\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Thu, 23 Jul 2026 16:11:06 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"message\": \"Order placed successfully\",\n    \"order\": {\n        \"user\": \"6a5a6d7c902c55528e099d71\",\n        \"items\": [\n            {\n                \"product\": \"6a5a773e902c55528e099d73\",\n                \"name\": \"Wireless Headphones\",\n                \"image\": \"https://res.cloudinary.com/dhoh7okbe/image/upload/v1784313661/products/rrgq6e9z0t8kdlwkveoj.jpg\",\n                \"price\": 120,\n                \"quantity\": 2\n            }\n        ],\n        \"shippingAddress\": {\n            \"fullName\": \"Dina Saba\",\n            \"phone\": \"0791234567\",\n            \"country\": \"Syria\",\n            \"city\": \"Tartous\",\n            \"address\": \"Street 12, Building 5\",\n            \"postalCode\": \"11941\"\n        },\n        \"paymentMethod\": \"cash\",\n        \"paymentStatus\": \"pending\",\n        \"transactionId\": null,\n        \"subtotal\": 240,\n        \"shippingFee\": 50,\n        \"tax\": 33.6,\n        \"discount\": 0,\n        \"totalPrice\": 323.6,\n        \"status\": \"pending\",\n        \"paidAt\": null,\n        \"deliveredAt\": null,\n        \"cancelledAt\": null,\n        \"customerNote\": \"Please deliver in the evening\",\n        \"_id\": \"6a623d19373531cc47ef0011\",\n        \"createdAt\": \"2026-07-23T16:11:05.856Z\",\n        \"updatedAt\": \"2026-07-23T16:11:05.856Z\",\n        \"__v\": 0\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "38. Orders - Get My Orders",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhNWE2ZDdjOTAyYzU1NTI4ZTA5OWQ3MSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc4NDgyMjkxOCwiZXhwIjoxNzg0ODIzODE4fQ.3WTsgAR90t-q4l6BzQPMHkNdL2RrMXRaHw2dPIReYm8",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:5000/orders/my?page=1&limit=10",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "orders",
+                "my"
+              ],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "key": "limit",
+                  "value": "10"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "38. Orders - Get My Orders",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhNWE2ZDdjOTAyYzU1NTI4ZTA5OWQ3MSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc4NDgyMjkxOCwiZXhwIjoxNzg0ODIzODE4fQ.3WTsgAR90t-q4l6BzQPMHkNdL2RrMXRaHw2dPIReYm8",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "http://localhost:5000/orders/my?page=1&limit=10",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "5000",
+                  "path": [
+                    "orders",
+                    "my"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "10"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "852"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"354-/2gbp9xdbiNlT50bUCDI4t5hUdw\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Thu, 23 Jul 2026 16:14:20 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"count\": 1,\n    \"total\": 1,\n    \"page\": 1,\n    \"totalPages\": 1,\n    \"orders\": [\n        {\n            \"shippingAddress\": {\n                \"fullName\": \"Dina Saba\",\n                \"phone\": \"0791234567\",\n                \"country\": \"Syria\",\n                \"city\": \"Tartous\",\n                \"address\": \"Street 12, Building 5\",\n                \"postalCode\": \"11941\"\n            },\n            \"_id\": \"6a623d19373531cc47ef0011\",\n            \"user\": \"6a5a6d7c902c55528e099d71\",\n            \"items\": [\n                {\n                    \"product\": \"6a5a773e902c55528e099d73\",\n                    \"name\": \"Wireless Headphones\",\n                    \"image\": \"https://res.cloudinary.com/dhoh7okbe/image/upload/v1784313661/products/rrgq6e9z0t8kdlwkveoj.jpg\",\n                    \"price\": 120,\n                    \"quantity\": 2\n                }\n            ],\n            \"paymentMethod\": \"cash\",\n            \"paymentStatus\": \"pending\",\n            \"transactionId\": null,\n            \"subtotal\": 240,\n            \"shippingFee\": 50,\n            \"tax\": 33.6,\n            \"discount\": 0,\n            \"totalPrice\": 323.6,\n            \"status\": \"pending\",\n            \"paidAt\": null,\n            \"deliveredAt\": null,\n            \"cancelledAt\": null,\n            \"customerNote\": \"Please deliver in the evening\",\n            \"createdAt\": \"2026-07-23T16:11:05.856Z\",\n            \"updatedAt\": \"2026-07-23T16:11:05.856Z\",\n            \"__v\": 0\n        }\n    ]\n}"
+            }
+          ]
+        },
+        {
+          "name": "39. Orders - Get My Order By Id",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhNWE2ZDdjOTAyYzU1NTI4ZTA5OWQ3MSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc4NDgyMjkxOCwiZXhwIjoxNzg0ODIzODE4fQ.3WTsgAR90t-q4l6BzQPMHkNdL2RrMXRaHw2dPIReYm8",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:5000/orders/my/6a623d19373531cc47ef0011",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "orders",
+                "my",
+                "6a623d19373531cc47ef0011"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "39. Orders - Get My Order By Id",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhNWE2ZDdjOTAyYzU1NTI4ZTA5OWQ3MSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc4NDgyMjkxOCwiZXhwIjoxNzg0ODIzODE4fQ.3WTsgAR90t-q4l6BzQPMHkNdL2RrMXRaHw2dPIReYm8",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "http://localhost:5000/orders/my/6a623d19373531cc47ef0011",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "5000",
+                  "path": [
+                    "orders",
+                    "my",
+                    "6a623d19373531cc47ef0011"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "805"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"325-M8QXB1iNxvsJN366oRm3i3L9jMs\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Thu, 23 Jul 2026 16:19:03 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"order\": {\n        \"shippingAddress\": {\n            \"fullName\": \"Dina Saba\",\n            \"phone\": \"0791234567\",\n            \"country\": \"Syria\",\n            \"city\": \"Tartous\",\n            \"address\": \"Street 12, Building 5\",\n            \"postalCode\": \"11941\"\n        },\n        \"_id\": \"6a623d19373531cc47ef0011\",\n        \"user\": \"6a5a6d7c902c55528e099d71\",\n        \"items\": [\n            {\n                \"product\": \"6a5a773e902c55528e099d73\",\n                \"name\": \"Wireless Headphones\",\n                \"image\": \"https://res.cloudinary.com/dhoh7okbe/image/upload/v1784313661/products/rrgq6e9z0t8kdlwkveoj.jpg\",\n                \"price\": 120,\n                \"quantity\": 2\n            }\n        ],\n        \"paymentMethod\": \"cash\",\n        \"paymentStatus\": \"pending\",\n        \"transactionId\": null,\n        \"subtotal\": 240,\n        \"shippingFee\": 50,\n        \"tax\": 33.6,\n        \"discount\": 0,\n        \"totalPrice\": 323.6,\n        \"status\": \"pending\",\n        \"paidAt\": null,\n        \"deliveredAt\": null,\n        \"cancelledAt\": null,\n        \"customerNote\": \"Please deliver in the evening\",\n        \"createdAt\": \"2026-07-23T16:11:05.856Z\",\n        \"updatedAt\": \"2026-07-23T16:11:05.856Z\",\n        \"__v\": 0\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "40. Orders - Cancel My Order",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhNWE2ZDdjOTAyYzU1NTI4ZTA5OWQ3MSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc4NDgyMjkxOCwiZXhwIjoxNzg0ODIzODE4fQ.3WTsgAR90t-q4l6BzQPMHkNdL2RrMXRaHw2dPIReYm8",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:5000/orders/my/6a623d19373531cc47ef0011/cancel",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "orders",
+                "my",
+                "6a623d19373531cc47ef0011",
+                "cancel"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "40. Orders - Cancel My Order",
+              "originalRequest": {
+                "method": "PATCH",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhNWE2ZDdjOTAyYzU1NTI4ZTA5OWQ3MSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc4NDgyMjkxOCwiZXhwIjoxNzg0ODIzODE4fQ.3WTsgAR90t-q4l6BzQPMHkNdL2RrMXRaHw2dPIReYm8",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "http://localhost:5000/orders/my/6a623d19373531cc47ef0011/cancel",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "5000",
+                  "path": [
+                    "orders",
+                    "my",
+                    "6a623d19373531cc47ef0011",
+                    "cancel"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "895"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"37f-BPG1FnC14Gun6qDmLORWze6/RC0\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Thu, 23 Jul 2026 16:21:14 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"message\": \"Order cancelled successfully, stock has been restored\",\n    \"order\": {\n        \"shippingAddress\": {\n            \"fullName\": \"Dina Saba\",\n            \"phone\": \"0791234567\",\n            \"country\": \"Syria\",\n            \"city\": \"Tartous\",\n            \"address\": \"Street 12, Building 5\",\n            \"postalCode\": \"11941\"\n        },\n        \"_id\": \"6a623d19373531cc47ef0011\",\n        \"user\": \"6a5a6d7c902c55528e099d71\",\n        \"items\": [\n            {\n                \"product\": \"6a5a773e902c55528e099d73\",\n                \"name\": \"Wireless Headphones\",\n                \"image\": \"https://res.cloudinary.com/dhoh7okbe/image/upload/v1784313661/products/rrgq6e9z0t8kdlwkveoj.jpg\",\n                \"price\": 120,\n                \"quantity\": 2\n            }\n        ],\n        \"paymentMethod\": \"cash\",\n        \"paymentStatus\": \"pending\",\n        \"transactionId\": null,\n        \"subtotal\": 240,\n        \"shippingFee\": 50,\n        \"tax\": 33.6,\n        \"discount\": 0,\n        \"totalPrice\": 323.6,\n        \"status\": \"cancelled\",\n        \"paidAt\": null,\n        \"deliveredAt\": null,\n        \"cancelledAt\": \"2026-07-23T16:21:14.635Z\",\n        \"customerNote\": \"Please deliver in the evening\",\n        \"createdAt\": \"2026-07-23T16:11:05.856Z\",\n        \"updatedAt\": \"2026-07-23T16:21:14.639Z\",\n        \"__v\": 0\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "41. Orders - Admin Dashboard Stats",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhNWE2ZDdjOTAyYzU1NTI4ZTA5OWQ3MSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc4NDgyMjkxOCwiZXhwIjoxNzg0ODIzODE4fQ.3WTsgAR90t-q4l6BzQPMHkNdL2RrMXRaHw2dPIReYm8",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:5000/orders/admin/dashboard",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "orders",
+                "admin",
+                "dashboard"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "41. Orders - Admin Dashboard Stats",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhNWE2ZDdjOTAyYzU1NTI4ZTA5OWQ3MSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc4NDgyMjkxOCwiZXhwIjoxNzg0ODIzODE4fQ.3WTsgAR90t-q4l6BzQPMHkNdL2RrMXRaHw2dPIReYm8",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "http://localhost:5000/orders/admin/dashboard",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "5000",
+                  "path": [
+                    "orders",
+                    "admin",
+                    "dashboard"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "1232"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"4d0-EVT2g2TVQXhcK0cH7kUwfz2Zhco\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Thu, 23 Jul 2026 16:23:34 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"revenue\": {\n        \"total\": 0,\n        \"thisMonth\": 0,\n        \"lastMonth\": 0,\n        \"monthOverMonthGrowthPercent\": null\n    },\n    \"ordersByStatus\": [\n        {\n            \"_id\": \"cancelled\",\n            \"count\": 1\n        }\n    ],\n    \"topProducts\": [\n        {\n            \"_id\": \"6a5a773e902c55528e099d73\",\n            \"name\": \"Wireless Headphones\",\n            \"unitsSold\": 2,\n            \"revenue\": 240\n        }\n    ],\n    \"dailyRevenue\": [\n        {\n            \"_id\": \"2026-07-23\",\n            \"revenue\": 323.6,\n            \"orderCount\": 1\n        }\n    ],\n    \"recentOrders\": [\n        {\n            \"shippingAddress\": {\n                \"fullName\": \"Dina Saba\",\n                \"phone\": \"0791234567\",\n                \"country\": \"Syria\",\n                \"city\": \"Tartous\",\n                \"address\": \"Street 12, Building 5\",\n                \"postalCode\": \"11941\"\n            },\n            \"_id\": \"6a623d19373531cc47ef0011\",\n            \"user\": {\n                \"_id\": \"6a5a6d7c902c55528e099d71\",\n                \"username\": \"dina_updated\",\n                \"email\": \"dinabr456@gmail.com\"\n            },\n            \"items\": [\n                {\n                    \"product\": \"6a5a773e902c55528e099d73\",\n                    \"name\": \"Wireless Headphones\",\n                    \"image\": \"https://res.cloudinary.com/dhoh7okbe/image/upload/v1784313661/products/rrgq6e9z0t8kdlwkveoj.jpg\",\n                    \"price\": 120,\n                    \"quantity\": 2\n                }\n            ],\n            \"paymentMethod\": \"cash\",\n            \"paymentStatus\": \"pending\",\n            \"transactionId\": null,\n            \"subtotal\": 240,\n            \"shippingFee\": 50,\n            \"tax\": 33.6,\n            \"discount\": 0,\n            \"totalPrice\": 323.6,\n            \"status\": \"cancelled\",\n            \"paidAt\": null,\n            \"deliveredAt\": null,\n            \"cancelledAt\": \"2026-07-23T16:21:14.635Z\",\n            \"customerNote\": \"Please deliver in the evening\",\n            \"createdAt\": \"2026-07-23T16:11:05.856Z\",\n            \"updatedAt\": \"2026-07-23T16:21:14.639Z\",\n            \"__v\": 0\n        }\n    ],\n    \"totalCustomers\": 0\n}"
+            }
+          ]
+        },
+        {
+          "name": "42. Orders - Admin Get All Carts",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhNWE2ZDdjOTAyYzU1NTI4ZTA5OWQ3MSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc4NDgyMzk5MCwiZXhwIjoxNzg0ODI0ODkwfQ.QpkMlijWFJwhknTCNdwq77zwdqpxLA8tIgRsBqRYJzo",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:5000/orders/admin/carts",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "orders",
+                "admin",
+                "carts"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "42. Orders - Admin Get All Carts",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhNWE2ZDdjOTAyYzU1NTI4ZTA5OWQ3MSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc4NDgyMzk5MCwiZXhwIjoxNzg0ODI0ODkwfQ.QpkMlijWFJwhknTCNdwq77zwdqpxLA8tIgRsBqRYJzo",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "http://localhost:5000/orders/admin/carts",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "5000",
+                  "path": [
+                    "orders",
+                    "admin",
+                    "carts"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "531"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"213-wyz1FOPom+CwQp6QbKz/bRv9bC0\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Thu, 23 Jul 2026 16:27:03 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"count\": 1,\n    \"carts\": [\n        {\n            \"coupon\": {\n                \"code\": null,\n                \"discountType\": null,\n                \"discountValue\": 0\n            },\n            \"_id\": \"6a58e0a2c03ae20d2badab4b\",\n            \"user\": null,\n            \"items\": [\n                {\n                    \"product\": \"6a4fbab60a4e89344319882e\",\n                    \"name\": \"Wireless Headphones\",\n                    \"image\": \"https://res.cloudinary.com/dhoh7okbe/image/upload/v1783610037/products/zalbneqmaqusnydqhepe.jpg\",\n                    \"price\": 150,\n                    \"quantity\": 5\n                }\n            ],\n            \"createdAt\": \"2026-07-16T13:46:10.429Z\",\n            \"updatedAt\": \"2026-07-16T14:00:36.131Z\",\n            \"__v\": 1,\n            \"subtotal\": 750,\n            \"discountAmount\": 0,\n            \"total\": 750,\n            \"itemCount\": 5,\n            \"id\": \"6a58e0a2c03ae20d2badab4b\"\n        }\n    ]\n}"
+            }
+          ]
+        },
+        {
+          "name": "43. Orders - Admin Get All Orders",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhNWE2ZDdjOTAyYzU1NTI4ZTA5OWQ3MSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc4NDgyMzk5MCwiZXhwIjoxNzg0ODI0ODkwfQ.QpkMlijWFJwhknTCNdwq77zwdqpxLA8tIgRsBqRYJzo",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:5000/orders/admin?page=1&limit=10",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "orders",
+                "admin"
+              ],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "key": "limit",
+                  "value": "10"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "43. Orders - Admin Get All Orders",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhNWE2ZDdjOTAyYzU1NTI4ZTA5OWQ3MSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc4NDgyMzk5MCwiZXhwIjoxNzg0ODI0ODkwfQ.QpkMlijWFJwhknTCNdwq77zwdqpxLA8tIgRsBqRYJzo",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "http://localhost:5000/orders/admin?page=1&limit=10",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "5000",
+                  "path": [
+                    "orders",
+                    "admin"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "10"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "940"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"3ac-+yaw4QWx2askrYmhkr8CoHlBItc\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Thu, 23 Jul 2026 16:28:52 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"count\": 1,\n    \"total\": 1,\n    \"page\": 1,\n    \"totalPages\": 1,\n    \"orders\": [\n        {\n            \"shippingAddress\": {\n                \"fullName\": \"Dina Saba\",\n                \"phone\": \"0791234567\",\n                \"country\": \"Syria\",\n                \"city\": \"Tartous\",\n                \"address\": \"Street 12, Building 5\",\n                \"postalCode\": \"11941\"\n            },\n            \"_id\": \"6a623d19373531cc47ef0011\",\n            \"user\": {\n                \"_id\": \"6a5a6d7c902c55528e099d71\",\n                \"username\": \"dina_updated\",\n                \"email\": \"dinabr456@gmail.com\"\n            },\n            \"items\": [\n                {\n                    \"product\": \"6a5a773e902c55528e099d73\",\n                    \"name\": \"Wireless Headphones\",\n                    \"image\": \"https://res.cloudinary.com/dhoh7okbe/image/upload/v1784313661/products/rrgq6e9z0t8kdlwkveoj.jpg\",\n                    \"price\": 120,\n                    \"quantity\": 2\n                }\n            ],\n            \"paymentMethod\": \"cash\",\n            \"paymentStatus\": \"pending\",\n            \"transactionId\": null,\n            \"subtotal\": 240,\n            \"shippingFee\": 50,\n            \"tax\": 33.6,\n            \"discount\": 0,\n            \"totalPrice\": 323.6,\n            \"status\": \"cancelled\",\n            \"paidAt\": null,\n            \"deliveredAt\": null,\n            \"cancelledAt\": \"2026-07-23T16:21:14.635Z\",\n            \"customerNote\": \"Please deliver in the evening\",\n            \"createdAt\": \"2026-07-23T16:11:05.856Z\",\n            \"updatedAt\": \"2026-07-23T16:21:14.639Z\",\n            \"__v\": 0\n        }\n    ]\n}"
+            }
+          ]
+        },
+        {
+          "name": "44. Orders - Admin Get Order By Id",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhNWE2ZDdjOTAyYzU1NTI4ZTA5OWQ3MSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc4NDgyMzk5MCwiZXhwIjoxNzg0ODI0ODkwfQ.QpkMlijWFJwhknTCNdwq77zwdqpxLA8tIgRsBqRYJzo",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:5000/orders/admin/6a623d19373531cc47ef0011",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "orders",
+                "admin",
+                "6a623d19373531cc47ef0011"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "44. Orders - Admin Get Order By Id",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhNWE2ZDdjOTAyYzU1NTI4ZTA5OWQ3MSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc4NDgyMzk5MCwiZXhwIjoxNzg0ODI0ODkwfQ.QpkMlijWFJwhknTCNdwq77zwdqpxLA8tIgRsBqRYJzo",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "http://localhost:5000/orders/admin/6a623d19373531cc47ef0011",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "5000",
+                  "path": [
+                    "orders",
+                    "admin",
+                    "6a623d19373531cc47ef0011"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "893"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"37d-R/HbuxF+G30LdtZps0/luUrEfH8\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Thu, 23 Jul 2026 16:31:22 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"order\": {\n        \"shippingAddress\": {\n            \"fullName\": \"Dina Saba\",\n            \"phone\": \"0791234567\",\n            \"country\": \"Syria\",\n            \"city\": \"Tartous\",\n            \"address\": \"Street 12, Building 5\",\n            \"postalCode\": \"11941\"\n        },\n        \"_id\": \"6a623d19373531cc47ef0011\",\n        \"user\": {\n            \"_id\": \"6a5a6d7c902c55528e099d71\",\n            \"username\": \"dina_updated\",\n            \"email\": \"dinabr456@gmail.com\"\n        },\n        \"items\": [\n            {\n                \"product\": \"6a5a773e902c55528e099d73\",\n                \"name\": \"Wireless Headphones\",\n                \"image\": \"https://res.cloudinary.com/dhoh7okbe/image/upload/v1784313661/products/rrgq6e9z0t8kdlwkveoj.jpg\",\n                \"price\": 120,\n                \"quantity\": 2\n            }\n        ],\n        \"paymentMethod\": \"cash\",\n        \"paymentStatus\": \"pending\",\n        \"transactionId\": null,\n        \"subtotal\": 240,\n        \"shippingFee\": 50,\n        \"tax\": 33.6,\n        \"discount\": 0,\n        \"totalPrice\": 323.6,\n        \"status\": \"cancelled\",\n        \"paidAt\": null,\n        \"deliveredAt\": null,\n        \"cancelledAt\": \"2026-07-23T16:21:14.635Z\",\n        \"customerNote\": \"Please deliver in the evening\",\n        \"createdAt\": \"2026-07-23T16:11:05.856Z\",\n        \"updatedAt\": \"2026-07-23T16:21:14.639Z\",\n        \"__v\": 0\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "45. Orders - Admin Update Status",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhNWE2ZDdjOTAyYzU1NTI4ZTA5OWQ3MSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc4NDgyMzk5MCwiZXhwIjoxNzg0ODI0ODkwfQ.QpkMlijWFJwhknTCNdwq77zwdqpxLA8tIgRsBqRYJzo",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"status\": \"confirmed\",\r\n  \"adminNote\": \"Payment verified\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5000/orders/admin/6a623d19373531cc47ef0011/status",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "orders",
+                "admin",
+                "6a623d19373531cc47ef0011",
+                "status"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "45. Orders - Admin Update Status",
+              "originalRequest": {
+                "method": "PATCH",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhNWE2ZDdjOTAyYzU1NTI4ZTA5OWQ3MSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc4NDgyMzk5MCwiZXhwIjoxNzg0ODI0ODkwfQ.QpkMlijWFJwhknTCNdwq77zwdqpxLA8tIgRsBqRYJzo",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"status\": \"confirmed\",\r\n  \"adminNote\": \"Payment verified\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:5000/orders/admin/6a623d19373531cc47ef0011/status",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "5000",
+                  "path": [
+                    "orders",
+                    "admin",
+                    "6a623d19373531cc47ef0011",
+                    "status"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "1311"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"51f-A3dwMEUf544zPPhxtmeq2CV1VtM\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Thu, 23 Jul 2026 16:33:34 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"message\": \"Order status updated and customer notified by email\",\n    \"order\": {\n        \"shippingAddress\": {\n            \"fullName\": \"Dina Saba\",\n            \"phone\": \"0791234567\",\n            \"country\": \"Syria\",\n            \"city\": \"Tartous\",\n            \"address\": \"Street 12, Building 5\",\n            \"postalCode\": \"11941\"\n        },\n        \"_id\": \"6a623d19373531cc47ef0011\",\n        \"user\": {\n            \"_id\": \"6a5a6d7c902c55528e099d71\",\n            \"username\": \"dina_updated\",\n            \"email\": \"dinabr456@gmail.com\",\n            \"phone\": \"0791234567\",\n            \"avatar\": \"https://res.cloudinary.com/dhoh7okbe/image/upload/v1784312872/avatars/q4n6aotq67nziubzdcaq.jpg\",\n            \"avatarPublicId\": \"avatars/q4n6aotq67nziubzdcaq\",\n            \"role\": \"admin\",\n            \"wishlist\": [],\n            \"isVerified\": true,\n            \"addresses\": [],\n            \"createdAt\": \"2026-07-17T17:59:24.162Z\",\n            \"updatedAt\": \"2026-07-17T18:31:37.605Z\",\n            \"__v\": 0\n        },\n        \"items\": [\n            {\n                \"product\": \"6a5a773e902c55528e099d73\",\n                \"name\": \"Wireless Headphones\",\n                \"image\": \"https://res.cloudinary.com/dhoh7okbe/image/upload/v1784313661/products/rrgq6e9z0t8kdlwkveoj.jpg\",\n                \"price\": 120,\n                \"quantity\": 2\n            }\n        ],\n        \"paymentMethod\": \"cash\",\n        \"paymentStatus\": \"pending\",\n        \"transactionId\": null,\n        \"subtotal\": 240,\n        \"shippingFee\": 50,\n        \"tax\": 33.6,\n        \"discount\": 0,\n        \"totalPrice\": 323.6,\n        \"status\": \"confirmed\",\n        \"paidAt\": null,\n        \"deliveredAt\": null,\n        \"cancelledAt\": \"2026-07-23T16:21:14.635Z\",\n        \"customerNote\": \"Please deliver in the evening\",\n        \"createdAt\": \"2026-07-23T16:11:05.856Z\",\n        \"updatedAt\": \"2026-07-23T16:33:32.147Z\",\n        \"__v\": 0,\n        \"adminNote\": \"Payment verified\"\n    }\n}"
+            }
+          ]
         }
       ]
     }
