@@ -10,7 +10,10 @@ const createOrderSchema = Joi.object({
     address: Joi.string().required(),
     postalCode: Joi.string().allow(''),
   }).required(),
-  paymentMethod: Joi.string().valid('cash', 'stripe', 'paypal', 'paymob'),
+  paymentMethod: Joi.string().valid('cash').messages({
+    'any.only':
+      'Only cash payment is currently supported. Online payment methods are coming soon.',
+  }),
   customerNote: Joi.string().max(1000).allow(''),
 });
 
