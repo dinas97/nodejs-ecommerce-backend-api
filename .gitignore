@@ -3,3 +3,5 @@ node_modules/
 
 # Environment variables (contains secrets - never commit)
 .env
+
+.vercel

@@ -97,8 +97,10 @@ nodejs-ecommerce-backend-api/
 │   ├── productValidation.js
 │   ├── cartValidation.js
 │   └── orderValidation.js
-├── postman/                             → Postman collection for API testing
-│   └── Ecommerce-API.postman_collection.json
+├── postman/                             → Postman collections for API testing
+│   ├── Ecommerce-API.postman_collection.json        → local (localhost:5000)
+│   └── Ecommerce-API-Vercel.postman_collection.json  → production (Vercel)
+│
 ├── index.js                              → App entry point
 ├── .env.example                          → Environment variables template
 └── package.json
@@ -334,26 +336,24 @@ automatically) to get a new one once it expires — no need to log in again.
 
 ## 🧪 Testing with Postman
 
-A ready-to-use Postman collection is included at:
+Two Postman collections are included:
 
-```
-postman/Ecommerce-API.postman_collection.json
-```
+    postman/Ecommerce-API.postman_collection.json          → local development
+    postman/Ecommerce-API-Vercel.postman_collection.json    → production deployment
 
-It's organized into folders matching each module — Authentication, Users, Products, Cart,
-Wishlist, Orders, and Admin Dashboard — with 46 requests total, automated status-code tests, and
-variable chaining (the token, product id, order id, etc. are captured automatically as you go
-through the requests in order).
+### 🌐 API Environments
 
-**To use it:**
+**Local Development**
 
-1. Open Postman → click **Import** → select `postman/Ecommerce-API.postman_collection.json`
-2. Make sure the server is running locally on `http://localhost:5000`
-3. Open the collection's **Variables** tab and set `test_email` to a real email you can access
-4. Run the **Authentication** folder first (in order) to get a token, then proceed folder by folder
+    http://localhost:5000
 
-> To test admin-only routes, manually set a user's `role` field to `"admin"` in MongoDB Atlas —
-> there is no API endpoint that grants admin access.
+**Production (Vercel Deployment)**
+
+    https://nodejs-ecommerce-backend-api.vercel.app
+
+Both are organized into folders matching each module — Authentication,
+Users, Products, Cart, Wishlist, and Orders — with 46 requests total,
+covering the main API functionalities.
 
 ---
 
